@@ -1,0 +1,66 @@
+.tile{
+  user-select: none;
+  border-radius: 10px;
+  transition: all 0.1s;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 20px;
+  justify-content: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+.w-tile{
+  height: 230px;
+  width: 80px;
+  background-color: #D6C1A9;
+  margin: 0 6px;
+  color: #294F4E;
+}
+.b-tile{
+  height: 180px;
+  width: 54px;
+  background-color: #294F4E;
+  margin: 0 19px;
+  color: #D6C1A9;
+}
+.b-tile:nth-child(3){
+  opacity: 0;
+  pointer-events: none;
+}
+.tile-hover{
+  transform: scale(105%);
+}
+.tile-pressed{
+  transform: scale(90%);
+}
+#piano{
+  width: 700px;
+  height: 350px;
+  background-color: #294F4E;
+  user-select: none;
+  border-radius: 30px;
+  position: relative;
+}
+#piano-w{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+#piano-b{
+  position: absolute;
+  background-color: orangered;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  height: 0;
+  display: flex;
+  justify-content: center;
+  user-select: none;
+}
