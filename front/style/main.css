@@ -2,13 +2,27 @@
   margin: 0;
   padding: 0;
 }
-
+@font-face {
+  font-family: bahnschrift;
+  src: url(../assets/fonts/BAHNSCHRIFT.TTF);
+}
+a{
+  text-decoration: none;
+  color: #C1272D;
+  transition: all .3s;
+}
+a:hover{
+  transform: scale(105%);
+}
 body {
   height: 100vh;
+  user-select: none;
+  font-family: bahnschrift;
 }
 #parallax{
   background-image: url(../assets/img/main_background.jpg);
   background-repeat: no-repeat;
+  background-size: 120%;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -19,25 +33,102 @@ body {
 }
 #h1{
   text-align: center;
+  height: fit-content;
+  cursor: pointer;
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#sun{
+  background-color: #C1272D;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 30px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+#body-container{
+  width: 100%;
+  height: 100%;
+}
+.sun-cloud{
+  transition: all .5s;
+  height: 30px;
+  width: 50px;
+}
+.sun-cloud:nth-child(1){
+  z-index: 2;
+  transform: translateX(20px);
+}
+.sun-cloud:nth-child(2){
+  transform: translateX(-60px) translateY(5px) scale(80%);
+  filter: brightness(85%)
+}
+.cloud-move-f{
+  transform: translateX(40px)!important;
+  filter: opacity(0%)!important;
+}
+.cloud-move-b{
+  filter: brightness(85%) opacity(0%)!important;
+  transform: translateX(-90px) translateY(5px) scale(80%)!important;
+}
+.header-btn{
+  border-radius: 10px;
+  color: #C1272D;
+  border: 3px solid #C1272D;
+  height: 35px;
+  width: 90px;
+  background: none;
+  margin: 30px;
+  font-weight: bold;
+  transition: all .5s;
+  cursor: pointer;
+}
+.header-btn:hover{
+  background-color: #C1272D;
+  color: #191919;
 }
 header{
   position: absolute;
   width: 100%;
-  height: 15%;
+  height: 10%;
   top: 0;
-  background-color: #C1272D;
+  box-shadow: 0 0 15px #000;
+  background-color: #191919;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+img{
+  transform: scale(80%);
 }
 aside{
-  background-color: orange;
   position: absolute;
-  transition: all .5s;
+  transition: all .7s;
   top: 0;
-  left: -300px;
+  left: -350px;
   width: 300px;
   height: 100%;
+  z-index: 3;
+  box-shadow: 0 0 15px #000;
+  background-color: #D6C1A9;
+}
+#aside-background{
+  width: 100%;
+  height: 100%;
+  background-image: url(../assets/img/aside_background.jpg);
+  background-position: center;
+  filter: contrast(0.8) saturate(42%) blur(0.1px) opacity(25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .slide{
-  transform: translateX(300px);
+  transform: translateX(350px);
 }
 main{
   position: absolute;
@@ -49,17 +140,44 @@ main{
   justify-content: center;
 }
 footer{
-  background-color: #0f2740;
+  background-color: #191919;
+  color: #C1272D;
   height: 15%;
   position: absolute;
+  box-shadow: 0 0 15px #000;
   bottom: 0;
-  width: 100%;
+  width: calc(100% - 60px);
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .content{
   width: 100%;
   height: 100%;
 }
-
+#git-link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#songs-list{
+  overflow: scroll;
+  width: 620px;
+  height: 420px;
+  margin-bottom: 3%;
+  border-radius: 10px;
+  background-color: #191919;
+  box-shadow: 0 0 10px #000 inset;
+  padding: 20px;
+}
+#songs-list::-webkit-scrollbar{
+  background: none;
+}
+#songs-list::-webkit-scrollbar-corner{
+  background: none;
+}
 /* 
 #C1272D красный
 #0f2740 синий

@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style/main.css">
   <link rel="stylesheet" href="style/piano/tiles.css">
+  <link rel="stylesheet" href="style/top/songs.css">
   <title>Star tunes</title>
+  <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon"> 
 </head>
 <body>
-  <header>
-    <h1 id="h1" onclick="asideSlide()">Star tunes</h1>
-    header
-  </header>
   <aside>
-    aside
+    <div id="aside-background">
+    </div>
   </aside>
-  <div id="parallax">
-
+  <header>
+    <div id="sun">
+      <img src="assets/img/cloud.svg" class="sun-cloud">
+      <img src="assets/img/cloud.svg" class="sun-cloud">
+    </div>
+    <h1 id="h1">
+      <img src="assets/img/logo.svg">
+    </h1>
+    <div>
+      <button class="header-btn">LOG IN</button>
+      <button class="header-btn">REGISTER</button>
+    </div>
+  </header>
+  <div id="body-container">
+    <div id="parallax"></div>
+    <main></main>
+    <footer>
+      <p><a href="https://github.com/BlackPawsStudio/" id="git-link"><img src="./assets/img/git.svg">GitHub: BlackPawsStudio</a></p>
+      <div>
+        <a id="vk-link" href="https://vk.com/id224429894">vk</a>
+      </div>
+    </footer>
   </div>
-  <main>
-  </main>
-  <footer>
-    footer
-  </footer>
 </body>
 <script src="script/htmlRender.js"></script>
+<script src="script/animations.js"></script>
 <script src="script/parallax.js"></script>
 <script src="script/piano/tilesEvents.js"></script>
 <script src="script/piano/sound.db.js"></script>
 <script src="script/piano/dbWork.js"></script>
+<script src="script/top/dbWork.js"></script>
+<script src="script/top/top.db.js"></script>
 <script src="script/pageLoader.js"></script>
 <script src="script/piano/keyPress.js"></script>
 <script src="script/app.js"></script>

@@ -1,16 +1,21 @@
 const callback = (e, audioContext) => {
   const oscillator = audioContext.createOscillator();
   oscillator.connect(audioContext.destination);
-  // const tiles = document.getElementsByClassName('tile')
-  // const arr = Array.prototype.slice.call(tiles)
-  // for (let i = 0; i < arr.length; i++) {
-  //   arr[i] = arr[i].innerHTML;
-  // }
+  const tiles = document.getElementsByClassName('tile')
   if (getFrequencyByKey(e.key)) {
-    oscillator.frequency.setValueAtTime(getFrequencyByKey(e.key), 0);
+    const note = getFrequencyByKey(e.key);
+    oscillator.frequency.setValueAtTime(note[0], 0);
+    let tilePressed;
+    for (let i = 0; i < tiles.length; i++) {
+      if (tiles[i].innerHTML === note[1]) {
+        tilePressed = tiles[i]
+      };
+    }
+    tilePressed.classList.add('tile-pressed');
     oscillator.start();
     document.addEventListener('keyup', () => {
       document.removeEventListener('keydown', callback, false)
+      tilePressed.classList.remove('tile-pressed');
       oscillator.stop(audioContext.currentTime + 0.09);
     })
   }

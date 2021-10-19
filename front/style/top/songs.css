@@ -1,0 +1,100 @@
+.top-song{
+  text-align: center;
+  height: 70px;
+  list-style-position: inside;
+  color: #C1272D;
+  border-top: 3px solid #C1272D;
+  border-bottom: 3px solid #C1272D;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.top-position{
+  width: 30px;
+  height: 30px;
+  font-size: 24px;
+  border: 3px solid #C1272D;
+  border-radius: 5px;
+}
+.song{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 70%;
+}
+.player{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+}
+.play-button{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  transition: all .5s;
+}
+.play-data{
+  height: 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.play-button-back:hover{
+  transform: rotateZ(360deg) scale(120%);
+}
+.play-button-back:hover > .play-button-front{
+  transform: rotateZ(-360deg) scale(50%);
+}
+.play-button-back:focus{
+  transition: all .3s;
+  transform: rotateZ(360deg) scale(90%);
+}
+.play-button-back:focus > .play-button-front{
+  transition: all .3s;
+  transform: rotateZ(-360deg) scale(50%);
+} 
+.play-button-back{
+  position: relative;
+  /* transform: translateX(-50%) translateY(-50%); */
+  border-left: 40px solid #C1272D;
+  border-top: 20px solid #00000000;
+  border-bottom: 20px solid #00000000;
+  transition: all .5s;
+  cursor: pointer;
+  background: none;
+  border-right: 0;
+}
+.play-button-front{
+  position: absolute;
+  left: -34px;
+  top: -12px;
+  border-left: 25px solid #191919;
+  border-top: 12px solid #00000000;
+  border-bottom: 12px solid #00000000;
+  transition: all .5s;
+}
+.play-line{
+  width: 330px;
+  border-top: 5px dashed #C1272D;
+}
+.song-info{
+  padding: 5px;
+  border-radius: 10px;
+  border: 3px solid #C1272D;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.song-info-line{
+  background-color: #C1272D;
+  height: 3px;
+  width: 100%;
+  }
+#top{
+  list-style: none;
+}

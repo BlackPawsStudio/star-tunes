@@ -5,7 +5,7 @@ const getFrequencyByNote = (note) => {
 const getFrequencyByKey = (key) => {
   try {
     const freq = soundData.flat().find((el) => {if (el.key === key.toLowerCase()) return el})
-    return freq.freq
+    return [freq.freq, freq.note]
   }
   catch {
     return false
