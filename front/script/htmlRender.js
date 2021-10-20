@@ -42,9 +42,9 @@ const getTopSongs = (topData) => {
       <div class="song">
         <div class="player">
           <div class="play-button">
-            <button class="play-button-back">
-              <div class="play-button-front"></div>
-            </button>
+            <div class="play-button-back">
+              <div class="play-button-front"></div> 
+            </div>
           </div>
           <div class="play-data">
             <label class="song-name">${el.name}</label>

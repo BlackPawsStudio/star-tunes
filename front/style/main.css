@@ -15,6 +15,7 @@
   color: #C1272D;
   font-size: 24px;
   cursor: pointer;
+  transition: all .5s;
 }
 .aside-links:hover{
   filter: opacity(50%);
@@ -101,7 +102,7 @@ body {
   height: 100%;
 }
 .sun-cloud{
-  transition: all .5s;
+  transition: all .8s;
   height: 30px;
   width: 50px;
 }
