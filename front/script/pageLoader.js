@@ -1,12 +1,14 @@
 const main = document.querySelector('main');
 
 const loadPiano = () => {
+  aside.classList.remove('slide');
   main.innerHTML = '';
   main.innerHTML = getPiano()
   enablePiano()
 }
 
 const loadFrame = () => {
+  aside.classList.remove('slide');
   main.innerHTML = '';
   main.innerHTML = renderFrame();
 }

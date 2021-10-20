@@ -6,6 +6,45 @@
   font-family: bahnschrift;
   src: url(../assets/fonts/BAHNSCHRIFT.TTF);
 }
+@font-face {
+  font-family: fujimaru;
+  src: url(../assets/fonts/Fujimaru-Regular.ttf);
+}
+@font-face {
+  font-family: hakuno;
+  src: url(../assets/fonts/hakuno\ demo.ttf);
+}
+@font-face {
+  font-family: hirokawa;
+  src: url(../assets/fonts/HirokawaRegular.ttf);
+}
+@font-face {
+  font-family: reggae;
+  src: url(../assets/fonts/ReggaeOne-Regular.ttf);
+}
+@font-face {
+  font-family: ungai;
+  src: url(../assets/fonts/Ungai.ttf);
+}
+.aside-links{
+  font-family: fujimaru;
+  color: #C1272D;
+  font-size: 24px;
+  cursor: pointer;
+}
+#aside-sun{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 10%;
+  background-color: #C1272D;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 a{
   text-decoration: none;
   color: #C1272D;
@@ -116,16 +155,22 @@ aside{
   z-index: 3;
   box-shadow: 0 0 15px #000;
   background-color: #D6C1A9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 100px;
 }
 #aside-background{
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-image: url(../assets/img/aside_background.jpg);
   background-position: center;
   filter: contrast(0.8) saturate(42%) blur(0.1px) opacity(25%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: -1;
 }
 .slide{
   transform: translateX(350px);
@@ -163,20 +208,32 @@ footer{
   justify-content: center;
 }
 #songs-list{
-  overflow: scroll;
+  overflow-y: scroll;
   width: 620px;
   height: 420px;
   margin-bottom: 3%;
   border-radius: 10px;
   background-color: #191919;
-  box-shadow: 0 0 10px #000 inset;
+  box-shadow: 0 0 300px #000 inset;
   padding: 20px;
 }
-#songs-list::-webkit-scrollbar{
-  background: none;
+#songs-list::-webkit-scrollbar {
+  width: 12px;
 }
-#songs-list::-webkit-scrollbar-corner{
-  background: none;
+
+/* Track */
+#songs-list::-webkit-scrollbar-track {
+  background:rgba(255, 255, 255, 0.224); 
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* Handle */
+#songs-list::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #C1272D; 
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);  */
 }
 /* 
 #C1272D красный

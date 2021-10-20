@@ -5,7 +5,6 @@
   color: #C1272D;
   border-top: 3px solid #C1272D;
   border-bottom: 3px solid #C1272D;
-  margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -97,4 +96,9 @@
   }
 #top{
   list-style: none;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  flex-direction: column;
+  row-gap: 10px;
 }
