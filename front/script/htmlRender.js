@@ -52,10 +52,13 @@ const getTopSongs = (topData) => {
           </div>
         </div>
       </div>
-      <div class="song-info">
-        <label>${el.author}</label>
-        <p class="song-info-line"></p>
-        <div>${getMark(el.mark)}</div>
+      <div class="song-info-alt">
+        <p class="alt-text">info</p>
+        <div class="song-info">
+          <label class="song-info-author">${el.author}</label>
+          <p class="song-info-line"></p>
+          <div class="song-info-mark">${getMark(el.mark)}</div>
+        </div>
       </div>
     </li>
   `
