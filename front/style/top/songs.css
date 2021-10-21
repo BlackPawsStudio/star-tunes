@@ -120,7 +120,8 @@
     width: 275px;
   }
   .song-info{
-    display: none;
+    height: 0;
+    visibility: hidden;
   }
   .song-info-alt{
     display: block;
@@ -135,9 +136,10 @@
     border-bottom: 7px dashed #C1272D;
   }
   .song-info-alt:hover > .song-info{
-    display: flex;
+    height: 60px;
+    visibility: visible;
     cursor: pointer;
-    transform: translateY(-62%) translateX(-50%);
+    transform: translateY(-3%) translateX(-50%);
   }
   .alt-text{
     display: block!important;

@@ -65,3 +65,19 @@ const getTopSongs = (topData) => {
   });
   return ret;
 }
+
+const fillPopup = (firstTime) => {
+  return `
+  <div id="popup-sakura"></div>
+  <div id="popup-mountains"></div>
+  <div id="popup-frames">
+    <label>${firstTime?'Registration':'Authorization'}</label>
+    <input class="popup-input" type="text" placeholder="Name here" autocomplete="false">
+    <input class="popup-input" type="password" placeholder="Password" autocomplete="false">
+    <div id="popup-btns">
+      <button class="popup-btn">Submit</button>
+      <button class="popup-btn">Cancel</button>
+    </div>
+  </div>
+  `
+}
