@@ -12,7 +12,7 @@ logIn.addEventListener('click', () => {
   loadPopup(false);
 })
 
-asidePiano.addEventListener('click', () => {
+asidePiano.addEventListener('click', (e) => {
   loadPiano();
 });
 

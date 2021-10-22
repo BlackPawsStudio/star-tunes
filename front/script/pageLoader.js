@@ -1,6 +1,7 @@
 const main = document.querySelector('main');
 
 const loadPiano = () => {
+  self.location.href = '#piano';
   aside.classList.remove('slide');
   main.innerHTML = '';
   main.innerHTML = getPiano()
@@ -14,6 +15,7 @@ const loadFrame = () => {
 }
 
 const loadTopSongs = () => {
+  self.location.href = '#top';
   loadFrame();
   const songsList = document.getElementById('songs-list');
   songsList.innerHTML = getTop(topData)

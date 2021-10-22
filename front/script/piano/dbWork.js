@@ -1,10 +1,10 @@
 const getFrequencyByNote = (note) => {
-  const freq = soundData.flat().find((el) => {if (el.note === note) {return el}})
+  const freq = soundData[0].notes.flat().find((el) => {if (el.note === note) {return el}})
   return freq.freq
 } 
-const getFrequencyByKey = (key) => {
+const getFrequencyByKey = (keyCode) => {
   try {
-    const freq = soundData.flat().find((el) => {if (el.key === key.toLowerCase()) return el})
+    const freq = soundData[0].notes.flat().find((el) => {if (el.keyCode === keyCode) return el})
     return [freq.freq, freq.note]
   }
   catch {

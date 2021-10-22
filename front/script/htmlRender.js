@@ -3,13 +3,51 @@ const insertTile = (color) => {
   const range = color ? 7 : 6;
   for (let i = 0; i < range; i++) {
     res += color?
-    `<div class="w-tile tile">${soundData[0][i].note}</div>`:
-    `<div class="b-tile tile">${soundData[1][i].note}</div>`;
+    `<div class="w-tile tile">${soundData[0].notes[0][i].note}</div>`:
+    `<div class="b-tile tile">${soundData[0].notes[1][i].note}</div>`;
   }
   return res;
 }
 
 const getPiano = () => `
+<div class="piano-setup">
+  <label>Instrument settings</label>
+  <div class="setup-content">
+    <div class="setup-block">
+      <label>Instrument presets</label>
+      <select class="setup-select">
+        <option value="0">Synthezator</option>
+        <option value="1">Classic piano</option>
+        <option value="2">Dudka ebat'</option>
+      </select>
+    </div>  
+    <div class="setup-block">
+      <label>Wave type</label>
+      <select class="setup-select">
+        <option value="0">Sine</option>
+        <option value="1">Square</option>
+        <option value="2">Sawtooth</option>
+        <option value="2">Triangle</option>
+      </select>
+    </div>  
+    <div class="setup-block">
+      <label>Octaves</label>
+      <select class="setup-select">
+        <option value="0">Great</option>
+        <option value="1">Small</option>
+        <option value="2">One-line</option>
+        <option value="2">Two-line</option>
+        <option value="2">Three-line</option>
+        <option value="2">Four-line</option>
+      </select>
+    </div>  
+    <div class="setup-block">
+      <label>Volume</label>
+      <input type="range" id="volume" min="0" max="100" value="50">
+    </div>
+  </div>
+  <img src="assets/img/info-triangle.svg">
+</div>
 <div id="piano">
   <div id="piano-w">
     ${insertTile(true)}
@@ -18,7 +56,22 @@ const getPiano = () => `
     ${insertTile(false)}
   </div>
 </div>
+<div class="piano-setup">
+  <label>Color settings</label>
+    <div class="setup-content">
+      <div class="color-block">
+        <label>Piano background</label>
+        <input type="color" value="#294F4E" class="setup-color">
+      </div>
+      <div class="color-block">
+        <label>Keys background</label>
+        <input type="color" value="#D6C1A9" class="setup-color">
+      </div>
+    </div>
+  <img src="assets/img/info-triangle.svg">
+</div>
 `
+
 const renderFrame = () => `
   <div id="songs-list"></div>
 `

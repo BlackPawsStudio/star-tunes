@@ -10,9 +10,7 @@ sun.addEventListener('click', () => {
   })
 })
 
-
 sun.addEventListener('mouseenter', () => {
-  console.log(sunClouds[1])
   sunClouds[0].classList.add("cloud-move-f")
   sunClouds[1].classList.add("cloud-move-b")
   sun.addEventListener('mouseleave', () => {
