@@ -249,7 +249,7 @@ footer{
 #popup{
   width: 350px;
   height: 400px;
-  background: #e0eaf0;
+  background: #E3DDD3;
   position: absolute;
   border: 5px solid #191919;
   border-radius: 30px;
@@ -265,11 +265,14 @@ footer{
   position: absolute;
   background-color: rgba(0, 0, 0, 0.387);
   z-index: 10;
-  display: none;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s;
 }
 #popup-sakura{
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   right: -55px;
   height: 300px;
   width: 300px;
@@ -280,11 +283,12 @@ footer{
 #popup-mountains{
   position: absolute;
   bottom: 0;
-  left: 0;
-  height: 100px;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 145px;
+  width: 114%;
   background-image: url("../assets/img/mountain.svg");
-  background-size: 160px;
+  background-size: 408px;
 }
 #popup-frames{
   display: flex;
@@ -313,7 +317,7 @@ footer{
 }
 .popup-btn{
   color: #191919;
-  height: 30px;
+  height: 35px;
   width: 100px;
   display: flex;
   align-items: center;

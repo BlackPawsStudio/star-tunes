@@ -22,11 +22,19 @@ const loadTopSongs = () => {
 const loadPopup = (firstTime) => {
   const popup = document.getElementById('popup');
   const popupCont = document.getElementById('popup-container');
-  popupCont.style.display = 'block';
+  popupCont.style.opacity = 100;
+  popupCont.style.visibility = 'visible'
   popup.innerHTML = '';
   popup.innerHTML = fillPopup(firstTime);
   const cancel = document.getElementsByClassName("popup-btn")[1];
   cancel.addEventListener('click', () => {
-    popupCont.style.display = 'none';
+    popupCont.style.opacity = 0;
+    popupCont.style.visibility = 'hidden'
+  })
+  document.addEventListener('keydown', (e) => {
+    if (e.keyCode === 27) {
+      popupCont.style.opacity = 0;
+     popupCont.style.visibility = 'hidden'
+    }
   })
 }
