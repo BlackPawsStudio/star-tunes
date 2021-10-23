@@ -9,7 +9,24 @@ const insertTile = (color) => {
   return res;
 }
 
-const getPiano = () => `
+const fillOctaves = () => {
+  let res = '';
+  for (let i = 0; i < soundData.length; i++) {
+    if (i === 3) {
+      res += `
+      <option value="${i}" selected>${soundData[i].name}</option>
+      `
+    }
+    else {
+      res += `
+      <option value="${i}">${soundData[i].name}</option>
+      `
+    }
+  }
+  return res
+}
+
+const getPianoSettings = () => `
 <div class="piano-setup">
   <label>Instrument settings</label>
   <div class="setup-content">
@@ -24,21 +41,16 @@ const getPiano = () => `
     <div class="setup-block">
       <label>Wave type</label>
       <select class="setup-select">
-        <option value="0">Sine</option>
+        <option value="3">Triangle</option>
+        <option value="0">Sawtooth</option>
         <option value="1">Square</option>
-        <option value="2">Sawtooth</option>
-        <option value="2">Triangle</option>
+        <option value="2">Sine</option>
       </select>
     </div>  
     <div class="setup-block">
       <label>Octaves</label>
       <select class="setup-select">
-        <option value="0">Great</option>
-        <option value="1">Small</option>
-        <option value="2">One-line</option>
-        <option value="2">Two-line</option>
-        <option value="2">Three-line</option>
-        <option value="2">Four-line</option>
+        ${fillOctaves()}
       </select>
     </div>  
     <div class="setup-block">
@@ -47,7 +59,23 @@ const getPiano = () => `
     </div>
   </div>
   <img src="assets/img/info-triangle.svg">
-</div>
+  </div>
+  <div class="piano-setup" id="color-setup">
+  <label>Color settings</label>
+    <div class="setup-content">
+      <div class="color-block">
+        <label>Piano background</label>
+        <input type="color" value="#294F4E" class="setup-color" onInput="pianoBackChange()">
+      </div>
+      <div class="color-block">
+        <label>Keys background</label>
+        <input type="color" value="#D6C1A9" class="setup-color" onInput="pianoTilesChange()">
+      </div>
+    </div>
+  <img src="assets/img/info-triangle.svg">
+</div>`
+
+const getPiano = () => `
 <div id="piano">
   <div id="piano-w">
     ${insertTile(true)}
@@ -55,20 +83,6 @@ const getPiano = () => `
   <div id="piano-b">
     ${insertTile(false)}
   </div>
-</div>
-<div class="piano-setup">
-  <label>Color settings</label>
-    <div class="setup-content">
-      <div class="color-block">
-        <label>Piano background</label>
-        <input type="color" value="#294F4E" class="setup-color">
-      </div>
-      <div class="color-block">
-        <label>Keys background</label>
-        <input type="color" value="#D6C1A9" class="setup-color">
-      </div>
-    </div>
-  <img src="assets/img/info-triangle.svg">
 </div>
 `
 

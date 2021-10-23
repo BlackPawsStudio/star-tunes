@@ -1,9 +1,12 @@
 const pianoKeysPressed = [];
 
-const callback = (e, audioContext) => {
+const callback = (e, audioContext, gainController) => {
+  const volume = document.getElementById('volume');
+  const fraction = +volume.value / +volume.max;
+  gainController.gain.setValueAtTime(fraction * fraction, 0);
   const oscillator = audioContext.createOscillator();
-  oscillator.type = 'sawtooth'
-  oscillator.connect(audioContext.destination);
+  oscillator.type = select[1].options[select[1].value].innerHTML.toLowerCase();
+  oscillator.connect(gainController);
   const tiles = document.getElementsByClassName('tile')
   if (getFrequencyByKey(e.keyCode)) {
     const note = getFrequencyByKey(e.keyCode);
@@ -27,11 +30,12 @@ const callback = (e, audioContext) => {
 
 const enableKeyPlay = () => {
   const audioContext = new AudioContext();
+  const gainController = audioContext.createGain();
+  gainController.connect(audioContext.destination);
   document.addEventListener('keydown', e => { 
     if (pianoKeysPressed.includes(e.keyCode) === false) {
-      callback(e, audioContext)
+      callback(e, audioContext, gainController)
       pianoKeysPressed.push(e.keyCode)
     }
   }) 
 }
-enableKeyPlay()

@@ -89,7 +89,7 @@
   transform: translateX(-50%);
   left: 15%;
 }
-.piano-setup:last-child{
+#color-setup{
   transform: translateX(50%);
   right: 15%;
 }

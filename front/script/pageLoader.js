@@ -3,9 +3,10 @@ const main = document.querySelector('main');
 const loadPiano = () => {
   self.location.href = '#piano';
   aside.classList.remove('slide');
-  main.innerHTML = '';
-  main.innerHTML = getPiano()
+  main.innerHTML = getPianoSettings();
+  main.innerHTML += getPiano();
   enablePiano()
+  enableKeyPlay()
 }
 
 const loadFrame = () => {

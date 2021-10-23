@@ -1,6 +1,12 @@
 const playSound = (e, audioContext, gainController, piano, mouseDown) => {
   e.target.classList.add('tile-pressed')
+  const volume = document.getElementById('volume');
+  const fraction = +volume.value / +volume.max;
+  gainController.gain.setValueAtTime(fraction * fraction, 0);
+  gainController2.gain.setValueAtTime(fraction * fraction, 0);
+  console.log(gainController.gain.value)
   const oscillator = audioContext.createOscillator();
+  oscillator.type = select[1].options[select[1].value].innerHTML.toLowerCase();
   oscillator.frequency.setValueAtTime(getFrequencyByNote(e.target.innerHTML), 0);
   oscillator.connect(gainController);
   oscillator.start();
@@ -15,7 +21,7 @@ const playSound = (e, audioContext, gainController, piano, mouseDown) => {
       e.target.classList.remove('tile-pressed')
     }
   })
-  e.target.addEventListener('mouseleave', (e) => {
+  e.target.addEventListener('mouseleave', () => {
     mouseDown = false;
     oscillator.stop(audioContext.currentTime);
   })
@@ -31,8 +37,10 @@ const playSound = (e, audioContext, gainController, piano, mouseDown) => {
 const enablePiano = () => {
   const audioContext = new AudioContext();
   const gainController = audioContext.createGain();
-  gainController.gain.setValueAtTime(0.5, 0);
-  gainController.connect(audioContext.destination);
+  const gainController2 = audioContext.createGain();
+  gainController.connect(gainController2);
+  // gainController.connect(audioContext.destination);
+  gainController2.connect(audioContext.destination);
 
   const piano = document.querySelector('#piano');
   let mouseDown = false;
