@@ -41,10 +41,10 @@ const getPianoSettings = () => `
     <div class="setup-block">
       <label>Wave type</label>
       <select class="setup-select">
-        <option value="3">Triangle</option>
-        <option value="0">Sawtooth</option>
-        <option value="1">Square</option>
-        <option value="2">Sine</option>
+        <option value="0">Triangle</option>
+        <option value="1">Sawtooth</option>
+        <option value="2">Square</option>
+        <option value="3">Sine</option>
       </select>
     </div>  
     <div class="setup-block">
