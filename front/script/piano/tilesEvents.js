@@ -3,8 +3,6 @@ const playSound = (e, audioContext, gainController, piano, mouseDown) => {
   const volume = document.getElementById('volume');
   const fraction = +volume.value / +volume.max;
   gainController.gain.setValueAtTime(fraction * fraction, 0);
-  gainController2.gain.setValueAtTime(fraction * fraction, 0);
-  console.log(gainController.gain.value)
   const oscillator = audioContext.createOscillator();
   oscillator.type = select[1].options[select[1].value].innerHTML.toLowerCase();
   oscillator.frequency.setValueAtTime(getFrequencyByNote(e.target.innerHTML), 0);
@@ -38,9 +36,7 @@ const enablePiano = () => {
   const audioContext = new AudioContext();
   const gainController = audioContext.createGain();
   const gainController2 = audioContext.createGain();
-  gainController.connect(gainController2);
-  // gainController.connect(audioContext.destination);
-  gainController2.connect(audioContext.destination);
+  gainController.connect(audioContext.destination);
 
   const piano = document.querySelector('#piano');
   let mouseDown = false;

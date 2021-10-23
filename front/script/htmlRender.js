@@ -26,6 +26,26 @@ const fillOctaves = () => {
   return res
 }
 
+const fillWaves = () => {
+  let res = '';
+  for (let i = 0; i < waveData.length; i++) {
+    res += `
+    <option value="${i}">${waveData[i]}</option>
+    `
+  }
+  return res
+}
+
+const fillColors = () => {
+  let res = '';
+  for (let i = 0; i < colorData.length; i++) {
+    res += `
+    <option value="${i}">${colorData[i].name}</option>
+    `
+  }
+  return res
+}
+
 const getPianoSettings = () => `
 <div class="piano-setup">
   <label>Instrument settings</label>
@@ -41,10 +61,7 @@ const getPianoSettings = () => `
     <div class="setup-block">
       <label>Wave type</label>
       <select class="setup-select">
-        <option value="0">Triangle</option>
-        <option value="1">Sawtooth</option>
-        <option value="2">Square</option>
-        <option value="3">Sine</option>
+        ${fillWaves()}
       </select>
     </div>  
     <div class="setup-block">
@@ -63,13 +80,19 @@ const getPianoSettings = () => `
   <div class="piano-setup" id="color-setup">
   <label>Color settings</label>
     <div class="setup-content">
+      <div class="setup-block">
+        <label>Color presets</label>
+        <select class="setup-select" onInput="applyTheme(this.value)">
+          ${fillColors()}
+        </select>
+      </div>  
       <div class="color-block">
         <label>Piano background</label>
-        <input type="color" value="#294F4E" class="setup-color" onInput="pianoBackChange()">
+        <input type="color" value="#294F4E" class="setup-color" onInput="pianoBackChange(this.value)">
       </div>
       <div class="color-block">
         <label>Keys background</label>
-        <input type="color" value="#D6C1A9" class="setup-color" onInput="pianoTilesChange()">
+        <input type="color" value="#D6C1A9" class="setup-color" onInput="pianoTilesChange(this.value)">
       </div>
     </div>
   <img src="assets/img/info-triangle.svg">
