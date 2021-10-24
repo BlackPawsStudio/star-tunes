@@ -1,4 +1,87 @@
 const main = document.querySelector('main');
+const regeisterBtns = document.getElementById('register-btns')
+
+const loadRegisterBtns = () => {
+  regeisterBtns.innerHTML = '';
+  regeisterBtns.innerHTML = fillLoginRegister();
+  const logIn = document.getElementsByClassName('header-btn')[0];
+  const signIn = document.getElementsByClassName('header-btn')[1];
+
+  signIn.addEventListener('click', () => {
+    loadPopup(true);
+  })
+  logIn.addEventListener('click', () => {
+    loadPopup(false);
+  })
+}
+
+const loadPopup = (firstTime) => {
+  const popup = document.getElementById('popup');
+  const popupCont = document.getElementById('popup-container');
+  const popupInput = document.getElementsByClassName('popup-input');
+
+  popupCont.style.opacity = 100;
+  popupCont.style.visibility = 'visible'
+  popup.innerHTML = '';
+  popup.innerHTML = fillPopup(firstTime);
+  
+  const submit = document.getElementsByClassName("popup-btn")[0];
+  const cancel = document.getElementsByClassName("popup-btn")[1];
+  submit.addEventListener('click', () => {
+    if (firstTime) {
+      userData.forEach(el => {
+        if (el.name === popupInput[0].value) {
+          popupInput[0].value = ''
+          popupInput[0].placeholder = 'This username is taken'
+        }
+        else { 
+          userData.push({name: popupInput[0].value, password: popupInput[0].value})
+          popupCont.style.opacity = 0;
+          popupCont.style.visibility = 'hidden'
+          loadProfileBtns(popupInput[0].value)
+        }
+      });
+    }
+    else {
+      userData.forEach(el => {
+        if (popupInput[0].value && popupInput[1].value)
+          if (el.name === popupInput[0].value) {
+            if (el.password === popupInput[1].value) {
+              loadProfileBtns(popupInput[0].value)
+              popupCont.style.opacity = 0;
+              popupCont.style.visibility = 'hidden'
+            }
+            else {
+              popupInput[1].value = ''
+              popupInput[1].placeholder = 'Wrong password'
+            }
+          }
+          else { 
+            popupInput[0].value = ''
+            popupInput[0].placeholder = 'No such user'
+          }
+      });
+    }
+    
+  })
+  cancel.addEventListener('click', () => {
+    popupCont.style.opacity = 0;
+    popupCont.style.visibility = 'hidden'
+  })
+
+  document.addEventListener('keydown', (e) => {
+    if (e.keyCode === 27) {
+      popupCont.style.opacity = 0;
+     popupCont.style.visibility = 'hidden'
+    }
+  })
+}
+
+const loadProfileBtns = (username) => {
+  regeisterBtns.innerHTML = '';
+  regeisterBtns.innerHTML = fillProfile(username);
+  enableUserBtns(username);
+}
 
 const loadPiano = () => {
   self.location.href = '#piano';
@@ -20,24 +103,4 @@ const loadTopSongs = () => {
   loadFrame();
   const songsList = document.getElementById('songs-list');
   songsList.innerHTML = getTop(topData)
-}
-
-const loadPopup = (firstTime) => {
-  const popup = document.getElementById('popup');
-  const popupCont = document.getElementById('popup-container');
-  popupCont.style.opacity = 100;
-  popupCont.style.visibility = 'visible'
-  popup.innerHTML = '';
-  popup.innerHTML = fillPopup(firstTime);
-  const cancel = document.getElementsByClassName("popup-btn")[1];
-  cancel.addEventListener('click', () => {
-    popupCont.style.opacity = 0;
-    popupCont.style.visibility = 'hidden'
-  })
-  document.addEventListener('keydown', (e) => {
-    if (e.keyCode === 27) {
-      popupCont.style.opacity = 0;
-     popupCont.style.visibility = 'hidden'
-    }
-  })
 }

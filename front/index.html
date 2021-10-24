@@ -10,6 +10,15 @@
   <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon"> 
 </head>
 <body>
+  <div id="ask-container">
+    <div id="question">
+      <label id="question-place">Are you sure?</label>
+      <div id="question-btns">
+        <button class="question-btn">Yes</button>
+        <button class="question-btn">No</button>
+      </div>
+    </div>
+  </div>
   <div id="popup-container">
     <div id="popup"></div>
   </div>
@@ -27,10 +36,7 @@
       <img src="assets/img/cloud.svg" class="sun-cloud">
     </div>
     <h1 id="h1">Star tunes</h1>
-    <div id="register-btns">
-      <button class="header-btn">LOG IN</button>
-      <button class="header-btn">SIGN IN</button>
-    </div>
+    <div id="register-btns"></div>
   </header>
   <div id="body-container">
     <div id="parallax"></div>
@@ -49,10 +55,13 @@
 <script src="script/piano/pianoSetup.js"></script>
 <script src="script/piano/dbWork.js"></script>
 
-<script src="script/piano/octaves.db.js"></script>
+<script src="script/users/users.db.js"></script>
 <script src="script/top/top.db.js"></script>
+<script src="script/piano/octaves.db.js"></script>
 <script src="script/piano/waveType.db.js"></script>
 <script src="script/piano/colorSchemes.db.js"></script>
+
+<script src="script/users/userAction.js"></script>
 
 <script src="script/htmlRender.js"></script>
 <script src="script/animations.js"></script>

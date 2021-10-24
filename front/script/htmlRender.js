@@ -9,6 +9,11 @@ const insertTile = (color) => {
   return res;
 }
 
+const fillLoginRegister = () => `
+<button class="header-btn">LOG IN</button>
+<button class="header-btn">SIGN IN</button>
+`
+
 const fillOctaves = () => {
   let res = '';
   for (let i = 0; i < soundData.length; i++) {
@@ -96,7 +101,8 @@ const getPianoSettings = () => `
       </div>
     </div>
   <img src="assets/img/info-triangle.svg">
-</div>`
+</div>
+`
 
 const getPiano = () => `
 <div id="piano">
@@ -160,14 +166,25 @@ const fillPopup = (firstTime) => {
   return `
   <div id="popup-sakura"></div>
   <div id="popup-mountains"></div>
-  <div id="popup-frames">
+    <form id="popup-frames" onsubmit="event.preventDefault()">
     <label>${firstTime?'Registration':'Authorization'}</label>
-    <input class="popup-input" type="text" placeholder="Name here" autocomplete="false">
-    <input class="popup-input" type="password" placeholder="Password" autocomplete="false">
+    <input class="popup-input" type="text" placeholder="Name here" autocomplete="false" required>
+    <input class="popup-input" type="password" placeholder="Password" autocomplete="false" required>
     <div id="popup-btns">
-      <button class="popup-btn">Submit</button>
-      <button class="popup-btn">Cancel</button>
+      <button class="popup-btn" type="submit">Submit</button>
+      <button class="popup-btn" type="submit">Cancel</button>
     </div>
-  </div>
+  </form>
   `
 }
+
+const fillProfile = (username) => `
+<div id="profile">
+  <button class="header-btn">${username}</button>
+  <div id="profile-content">
+    <button class="profile-btn">Enter profile</button>
+    <button class="profile-btn">Log out</button>
+    <button class="profile-btn">Delete user</button>
+  </div>
+</div>
+`

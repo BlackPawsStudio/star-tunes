@@ -35,7 +35,6 @@ const playSound = (e, audioContext, gainController, piano, mouseDown) => {
 const enablePiano = () => {
   const audioContext = new AudioContext();
   const gainController = audioContext.createGain();
-  const gainController2 = audioContext.createGain();
   gainController.connect(audioContext.destination);
 
   const piano = document.querySelector('#piano');
