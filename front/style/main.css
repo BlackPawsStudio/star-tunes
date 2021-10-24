@@ -374,12 +374,12 @@ footer{
 }
 #profile:hover > #profile-content{
   margin-top: -10px;
-  padding-top: 10px;
+  /* padding-top: 5px; */
   padding-bottom: 10px;
   border: 3px solid #C1272D;
   border-top: none;
   width: calc(100% - 6px);
-  height: calc(150px - 23px);
+  height: calc(122px - 23px);
 }
 .profile-btn{
   font-weight: bold;
@@ -388,7 +388,8 @@ footer{
   background: none;
   border-left: none;
   border-right: none;
-  border-top: 3px solid #C1272D;
+  border-top: none;
+  /* border-top: 3px solid #C1272D; */
   border-bottom: 3px solid #C1272D;
   padding-top: 5px;
   padding-bottom: 5px;

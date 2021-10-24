@@ -29,41 +29,52 @@ const loadPopup = (firstTime) => {
   const cancel = document.getElementsByClassName("popup-btn")[1];
   submit.addEventListener('click', () => {
     if (firstTime) {
-      userData.forEach(el => {
-        if (el.name === popupInput[0].value) {
-          popupInput[0].value = ''
-          popupInput[0].placeholder = 'This username is taken'
+      console.log('aboba')
+      let found = false;
+      for (let i = 0; i < userData.length; i++) {
+        if (userData[i].name === popupInput[0].value) {
+          found = true
         }
-        else { 
-          userData.push({name: popupInput[0].value, password: popupInput[0].value})
-          popupCont.style.opacity = 0;
-          popupCont.style.visibility = 'hidden'
-          loadProfileBtns(popupInput[0].value)
-        }
-      });
+      };
+      if (found) {
+        popupInput[0].value = ''
+        popupInput[0].placeholder = 'This username is taken'
+      }
+      else { 
+        userData.push({name: popupInput[0].value, password: popupInput[1].value})
+        popupCont.style.opacity = 0;
+        popupCont.style.visibility = 'hidden'
+        loadProfileBtns(popupInput[0].value)
+      }
     }
     else {
-      userData.forEach(el => {
-        if (popupInput[0].value && popupInput[1].value)
-          if (el.name === popupInput[0].value) {
-            if (el.password === popupInput[1].value) {
-              loadProfileBtns(popupInput[0].value)
-              popupCont.style.opacity = 0;
-              popupCont.style.visibility = 'hidden'
-            }
-            else {
-              popupInput[1].value = ''
-              popupInput[1].placeholder = 'Wrong password'
-            }
+      console.log('bebra')
+      let found = null;
+      for (let i = 0; i < userData.length; i++) {
+        if (popupInput[0].value && popupInput[1].value) {
+          if (userData[i].name == popupInput[0].value) {
+            found = userData[i];
           }
-          else { 
-            popupInput[0].value = ''
-            popupInput[0].placeholder = 'No such user'
-          }
-      });
+        }
+      }
+      if (found) {
+        if (found.password === popupInput[1].value) {
+          loadProfileBtns(found.name)
+          popupCont.style.opacity = 0;
+          popupCont.style.visibility = 'hidden'
+        }
+        else {
+          popupInput[1].value = ''
+          popupInput[1].placeholder = 'Wrong password'
+        }
+      }
+      else { 
+        popupInput[0].value = ''
+        popupInput[0].placeholder = 'No such user'
+      }
     }
-    
   })
+  
   cancel.addEventListener('click', () => {
     popupCont.style.opacity = 0;
     popupCont.style.visibility = 'hidden'
