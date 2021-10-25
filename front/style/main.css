@@ -41,9 +41,11 @@ a{
 a:hover{
   transform: scale(105%);
 }
+button, h1, img{
+  user-select: none;
+}
 body {
   height: 100vh;
-  user-select: none;
   font-family: bahnschrift;
 }
 #parallax{
@@ -143,7 +145,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
   font-weight: bold;
   transition: all .5s;
   cursor: pointer;
@@ -230,11 +231,11 @@ footer{
   justify-content: center;
 }
 #songs-list{
+  color: #C1272D;
   overflow-x: hidden;
   overflow-y: scroll;
-  width: 620px;
-  height: 420px;
-  margin-bottom: 3%;
+  width: 45%;
+  height: 80%;
   border-radius: 10px;
   background-color: #191919;
   box-shadow: 0 0 300px #000 inset;

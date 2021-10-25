@@ -44,7 +44,7 @@ const loadPopup = (firstTime) => {
         userData.push({name: popupInput[0].value, password: popupInput[1].value})
         popupCont.style.opacity = 0;
         popupCont.style.visibility = 'hidden'
-        loadProfileBtns(popupInput[0].value)
+        loadProfileBtns({name: popupInput[0].value, password: popupInput[1].value, rating: 0, marked: [], songs: [], pfp: 0})
       }
     }
     else {
@@ -59,7 +59,7 @@ const loadPopup = (firstTime) => {
       }
       if (found) {
         if (found.password === popupInput[1].value) {
-          loadProfileBtns(found.name)
+          loadProfileBtns(found)
           popupCont.style.opacity = 0;
           popupCont.style.visibility = 'hidden'
         }
@@ -88,10 +88,10 @@ const loadPopup = (firstTime) => {
   })
 }
 
-const loadProfileBtns = (username) => {
+const loadProfileBtns = (user) => {
   regeisterBtns.innerHTML = '';
-  regeisterBtns.innerHTML = fillProfile(username);
-  enableUserBtns(username);
+  regeisterBtns.innerHTML = fillProfile(user.name);
+  enableUserBtns(user);
 }
 
 const loadPiano = () => {
@@ -104,6 +104,7 @@ const loadPiano = () => {
 }
 
 const loadFrame = () => {
+  document.removeEventListener('keydown', callback, false)
   aside.classList.remove('slide');
   main.innerHTML = '';
   main.innerHTML = renderFrame();
@@ -114,4 +115,12 @@ const loadTopSongs = () => {
   loadFrame();
   const songsList = document.getElementById('songs-list');
   songsList.innerHTML = getTop(topData)
+}
+
+const loadProfile = (user) => {
+  self.location.href = '#profile';
+  aside.classList.remove('slide');
+  main.innerHTML = '';
+  main.innerHTML += getProfile(user);
+
 }

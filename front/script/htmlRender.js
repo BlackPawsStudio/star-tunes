@@ -137,11 +137,10 @@ const getTopSongs = (topData) => {
       <label class="top-position">${el.position}</label>
       <div class="song">
         <div class="player">
-          <div class="play-button">
-            <div class="play-button-back">
-              <div class="play-button-front"></div> 
-            </div>
-          </div>
+          <button class="play-button">
+            <div class="play-button-back"></div>
+            <div class="play-button-front"></div> 
+          </button>
           <div class="play-data">
             <label class="song-name">${el.name}</label>
             <div class="play-line"></div>
@@ -180,11 +179,121 @@ const fillPopup = (firstTime) => {
 
 const fillProfile = (username) => `
 <div id="profile">
-  <button class="header-btn">${username}</button>
+  <button class="header-btn">
+  ${
+    (username.length > 10)?
+      username.split('').slice(0, 9).join('')+'...':
+      username}
+  </button>
   <div id="profile-content">
     <button class="profile-btn">Enter profile</button>
     <button class="profile-btn">Log out</button>
     <button class="profile-btn">Delete user</button>
   </div>
+</div>
+`
+
+////////////////////////////////////////////////////////////////////////////
+const fillMarked = (user) => {
+  let ret = '';
+  for (let i = 0; i < user.marked.length; i++) {
+    ret += `
+    <li class="marked-song">
+      <label class="top-position">0</label>
+      <label class="marked-name">Cringe song</label>
+      <div class="song-info-alt">
+        <p class="alt-text">info</p>
+        <div class="song-info">
+          <label class="song-info-author">username</label>
+          <p class="song-info-line"></p>
+          <div class="song-info-mark">☆</div>
+        </div>
+      </div>
+    </li>
+    `
+  }
+  return ret;
+}
+
+const fillUserSongs = (user) => {
+  let ret = '';
+  for (let i = 0; i < user.songs.length; i++) {
+    ret += `
+    <li class="top-song">
+      <label class="top-position">0</label>
+      <div class="song">
+        <div class="player">
+          <button class="play-button">
+            <div class="play-button-back"></div>
+            <div class="play-button-front"></div> 
+          </button>
+          <div class="play-data">
+            <label class="song-name">This life is cringe...</label>
+            <div class="play-line"></div>
+          </div>
+        </div>
+      </div>
+      <div class="song-info-alt">
+        <p class="alt-text">info</p>
+        <div class="song-info">
+          <label class="song-info-author">username</label>
+          <p class="song-info-line"></p>
+          <div class="song-info-mark">☆</div>
+        </div>
+      </div>
+    </li>
+    `
+  }
+  return ret
+}
+
+const getProfile = (user) => `
+<div id="profile-section">
+  <div id="profile-window">
+    <div id="profile-avatar"></div>
+    <label id="profile-name">${user.name}</label>
+    <label class="profile-info">${user.rating} in rating</label>
+    <label class="profile-info">${user.songs.length} songs</label>
+    <button class="profile-sec-btn">Start creating</button>
+    <button class="profile-sec-btn">Upload your song</button>
+  </div>
+  
+  <div id="profile-marked">
+    <ul id="marked">
+      ${fillMarked(user)?fillMarked(user):'You haven\'t marked anything yet'}
+    </ul>
+  </div>
+</div>
+<div id="songs-list">
+  <ul id="user-songs">
+    ${fillUserSongs(user)?fillUserSongs(user):'You haven\'t got any songs yet'}
+  </ul>
+</div>
+<div id="chat">
+  <div id="chat-head">4000 online</div>
+  <div id="chat-messages-scroller">
+    <div id="chat-messages">
+      <div class="message">
+        <label class="message-user">Chel:</label>
+        <label class="message-text">Yo wassup</label>
+        <div class="message-point"></div>
+      </div>
+      <div class="your message">
+        <label class="message-user">You:</label>
+        <label class="message-text">Life is cringe...</label>
+        <div class="message-point"></div>
+      </div>
+      <div class="message">
+        <label class="message-user">aboba:</label>
+        <label class="message-text">Слышь ты говно собачье дерьмо вонючее, а ну что решил на меня лезть</label>
+        <div class="message-point"></div>
+      </div>
+    </div>
+  </div>
+  <div id="chat-input">
+    <input id="chat-text-field" placeholder="Enter message...">
+    <button id="chat-send"></button>
+  </div>
+  <input>
 </div>
 `
