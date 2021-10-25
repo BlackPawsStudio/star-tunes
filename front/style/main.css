@@ -41,7 +41,7 @@ a{
 a:hover{
   transform: scale(105%);
 }
-button, h1, img{
+button, h1, img, .aside-links{
   user-select: none;
 }
 body {

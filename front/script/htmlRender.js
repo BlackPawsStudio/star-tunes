@@ -247,6 +247,14 @@ const fillUserSongs = (user) => {
   return ret
 }
 
+const getMessage = (username, message) => `
+<div class="${(username === currUser.name)?'your':''} message">
+  <label class="message-user">${username}:</label>
+  <label class="message-text">${message}</label>
+  <div class="message-point"></div>
+</div>
+`
+
 const getProfile = (user) => `
 <div id="profile-section">
   <div id="profile-window">
@@ -270,25 +278,9 @@ const getProfile = (user) => `
   </ul>
 </div>
 <div id="chat">
-  <div id="chat-head">4000 online</div>
+  <div id="chat-head">1 online</div>
   <div id="chat-messages-scroller">
-    <div id="chat-messages">
-      <div class="message">
-        <label class="message-user">Chel:</label>
-        <label class="message-text">Yo wassup</label>
-        <div class="message-point"></div>
-      </div>
-      <div class="your message">
-        <label class="message-user">You:</label>
-        <label class="message-text">Life is cringe...</label>
-        <div class="message-point"></div>
-      </div>
-      <div class="message">
-        <label class="message-user">aboba:</label>
-        <label class="message-text">Слышь ты говно собачье дерьмо вонючее, а ну что решил на меня лезть</label>
-        <div class="message-point"></div>
-      </div>
-    </div>
+    <div id="chat-messages"></div>
   </div>
   <div id="chat-input">
     <input id="chat-text-field" placeholder="Enter message...">

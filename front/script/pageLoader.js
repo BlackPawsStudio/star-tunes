@@ -29,26 +29,28 @@ const loadPopup = (firstTime) => {
   const cancel = document.getElementsByClassName("popup-btn")[1];
   submit.addEventListener('click', () => {
     if (firstTime) {
-      console.log('aboba')
       let found = false;
-      for (let i = 0; i < userData.length; i++) {
-        if (userData[i].name === popupInput[0].value) {
-          found = true
+      if (popupInput[0].value && popupInput[1].value) {
+        for (let i = 0; i < userData.length; i++) {
+          if (userData[i].name === popupInput[0].value) {
+            found = true
+          }
+        };
+        if (found) {
+          popupInput[0].value = ''
+          popupInput[0].placeholder = 'This username is taken'
         }
-      };
-      if (found) {
-        popupInput[0].value = ''
-        popupInput[0].placeholder = 'This username is taken'
-      }
-      else { 
-        userData.push({name: popupInput[0].value, password: popupInput[1].value})
-        popupCont.style.opacity = 0;
-        popupCont.style.visibility = 'hidden'
-        loadProfileBtns({name: popupInput[0].value, password: popupInput[1].value, rating: 0, marked: [], songs: [], pfp: 0})
+        else { 
+          const user = {name: popupInput[0].value, password: popupInput[1].value, rating: 0, marked: [], songs: [], pfp: 0}
+          userData.push(user)
+          popupCont.style.opacity = 0;
+          popupCont.style.visibility = 'hidden'
+          currUser = user;
+          loadProfileBtns(currUser)
+        }
       }
     }
     else {
-      console.log('bebra')
       let found = null;
       for (let i = 0; i < userData.length; i++) {
         if (popupInput[0].value && popupInput[1].value) {
@@ -59,7 +61,8 @@ const loadPopup = (firstTime) => {
       }
       if (found) {
         if (found.password === popupInput[1].value) {
-          loadProfileBtns(found)
+          currUser = found;
+          loadProfileBtns(currUser)
           popupCont.style.opacity = 0;
           popupCont.style.visibility = 'hidden'
         }
@@ -122,5 +125,5 @@ const loadProfile = (user) => {
   aside.classList.remove('slide');
   main.innerHTML = '';
   main.innerHTML += getProfile(user);
-
+  enableChat(user);
 }
