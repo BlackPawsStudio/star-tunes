@@ -283,8 +283,8 @@ const getProfile = (user) => `
     <div id="chat-messages"></div>
   </div>
   <div id="chat-input">
-    <input id="chat-text-field" placeholder="Enter message...">
-    <button id="chat-send"></button>
+    <input id="chat-text-field" placeholder="Enter message..." autocomplete="false">
+    <div id="chat-send"></div>
   </div>
   <input>
 </div>

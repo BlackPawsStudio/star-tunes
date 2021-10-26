@@ -10,6 +10,13 @@ const enableChat = (user) => {
       socket.emit('chat-message-request', chatText.value);
     chatText.value = '';
   })
+  document.addEventListener('keydown', (e) => {
+    if (e.keyCode === 13) {
+      if (chatText.value !== '')
+        socket.emit('chat-message-request', chatText.value);
+      chatText.value = '';
+    }
+  })
   socket.on('chat-message-post', data => {
     chatMessages.innerHTML += getMessage(data[0], data[1]);
   })
