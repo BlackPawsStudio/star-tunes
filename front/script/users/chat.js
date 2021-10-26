@@ -11,7 +11,6 @@ const enableChat = (user) => {
     chatText.value = '';
   })
   socket.on('chat-message-post', data => {
-    console.log('cringe')
     chatMessages.innerHTML += getMessage(data[0], data[1]);
   })
   socket.on('chat-send-all-users', usersArr => {

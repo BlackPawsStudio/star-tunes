@@ -12,6 +12,12 @@
   <script defer src="https://pointing-poker-backend.herokuapp.com/socket.io/socket.io.js"></script>
 </head>
 <body>
+  <div id="message-container">
+    <div id="message-place">
+      <label id="message-text">Are you sure?</label>
+      <button id="message-btn">OK</button>
+    </div>
+  </div>
   <div id="ask-container">
     <div id="question">
       <label id="question-place">Are you sure?</label>
@@ -68,6 +74,7 @@
 
 <script src="script/users/userAction.js"></script>
 <script src="script/users/chat.js"></script>
+<script src="script/users/accountActions.js"></script>
 
 <script src="script/htmlRender.js"></script>
 <script src="script/animations.js"></script>

@@ -13,7 +13,9 @@ const enableUserBtns = (user) => {
     askField.classList.add('shown');
     btns[0].addEventListener('click', () => {
       askField.classList.remove('shown');
+      currUser = null;
       loadRegisterBtns();
+      loadTopSongs();
     })
     btns[1].addEventListener('click', () => {
       askField.classList.remove('shown');
@@ -27,7 +29,9 @@ const enableUserBtns = (user) => {
       userData.splice(userData.indexOf(userData.find(el => {
         if (el.name === user.name) return el
       })), 1)
+      currUser = null;
       loadRegisterBtns();
+      loadTopSongs();
     })
     btns[1].addEventListener('click', () => {
       askField.classList.remove('shown');

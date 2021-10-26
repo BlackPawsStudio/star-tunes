@@ -35,6 +35,14 @@
   transition: all .5s;
   cursor: pointer;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.profile-sec-btn:last-child{
+  font-size: 14px;
+  font-weight: 100;
 }
 .profile-sec-btn:hover{
   background-color: #C1272D;

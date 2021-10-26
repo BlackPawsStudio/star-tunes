@@ -126,4 +126,5 @@ const loadProfile = (user) => {
   main.innerHTML = '';
   main.innerHTML += getProfile(user);
   enableChat(user);
+  enableProfile(user);
 }

@@ -16,6 +16,8 @@ asideTop.addEventListener('click', () => {
 });
 
 asideProfile.addEventListener('click', () => {
-  if (currUser) loadProfile(userData[0])
-  else alert('vojdi v akkaunt clown')
+  if (currUser) loadProfile(currUser)
+  else {
+    askUser('Please sign up first')
+  }
 })

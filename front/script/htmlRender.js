@@ -166,11 +166,11 @@ const fillPopup = (firstTime) => {
   <div id="popup-sakura"></div>
   <div id="popup-mountains"></div>
     <form id="popup-frames" onsubmit="event.preventDefault()">
-    <label>${firstTime?'Registration':'Authorization'}</label>
+    <label>${firstTime?'Sign Up':'Log In'}</label>
     <input class="popup-input" type="text" placeholder="Name here" autocomplete="false" required>
     <input class="popup-input" type="password" placeholder="Password" autocomplete="false" required>
     <div id="popup-btns">
-      <button class="popup-btn" type="submit">Submit</button>
+      <button class="popup-btn" type="submit">${firstTime?'Sign up':'Log In'}</button>
       <button class="popup-btn" type="submit">Cancel</button>
     </div>
   </form>
@@ -263,7 +263,7 @@ const getProfile = (user) => `
     <label class="profile-info">${user.rating} in rating</label>
     <label class="profile-info">${user.songs.length} songs</label>
     <button class="profile-sec-btn">Start creating</button>
-    <button class="profile-sec-btn">Upload your song</button>
+    <label class="profile-sec-btn"><input type="file" style="display:none">Upload your song</label>
   </div>
   
   <div id="profile-marked">
@@ -289,3 +289,22 @@ const getProfile = (user) => `
   <input>
 </div>
 `
+
+const askUser = (message) => {
+  const ask = document.getElementById('message-container')
+  const btn = document.getElementById('message-btn')
+  const label = document.getElementById('message-text')
+  label.innerHTML = message
+  ask.style.opacity = 100;
+  ask.style.visibility = 'visible';
+  btn.addEventListener('click', () => {
+    ask.style.opacity = 0;
+    ask.style.visibility = 'hidden';
+  })
+  document.addEventListener('keydown', (e) => {
+    if (e.keyCode === 27 || e.keyCode === 13) {
+      ask.style.opacity = 0;
+      ask.style.visibility = 'hidden';
+    }
+  })
+}
