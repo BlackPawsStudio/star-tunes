@@ -20,12 +20,7 @@
 
   $result = $conn->query($sql);
   
-  if ($result -> num_rows > 0) {
-    // output data of each row
-    echo json_encode($sql);
-  } else {
-    echo "0 results";
-  }
+  echo json_encode($sql);
   $conn->close();
 
   // echo json_encode('Привет, ' . htmlspecialchars($_GET["name"]) . '!');
