@@ -1,19 +1,15 @@
 <?php
   header("Access-Control-Allow-Origin: * ");  
   
-  $servername = '@eu-cdbr-west-01.cleardb.com';
-  $username = 'b3c3aff8b732c2';
-  $password = '732bc427';
-  $dbname = 'heroku_01d49df919a24e7';
-
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  // Check connection
-  $contents = file_get_contents($servername);
-  echo $contents;
-  if ($conn -> connect_error) {
-    die("Connection failed: " . $conn -> connect_error);
-    echo json_encode('died from cringe');
-  }
+  $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+  $cleardb_server = $cleardb_url["host"];
+  $cleardb_username = $cleardb_url["user"];
+  $cleardb_password = $cleardb_url["pass"];
+  $cleardb_db = substr($cleardb_url["path"],1);
+  $active_group = 'default';
+  $query_builder = TRUE;
+  // Connect to DB
+  $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
   
   $sql = "SELECT * FROM colordata";
 
