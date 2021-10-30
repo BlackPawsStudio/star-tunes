@@ -1,16 +1,18 @@
 <?php
   header("Access-Control-Allow-Origin: * ");  
   
-  $servername = 'localhost';
-  $username = 'b3c3aff8b732c2';
-  $password = '732bc427';
-  $dbname = 'heroku_01d49df919a24e7';
+  $db_url = parse_url(getenv('@eu-cdbr-west-01.cleardb.com'));
+
+  $servername = $db_url["host"];
+  $username = $db_url["user"];
+  $password = $db_url["pass"];
+  $dbname = substr($db_url["path"], 1);
 
   $conn = new mysqli($servername, $username, $password, $dbname);
   // Check connection
   if ($conn -> connect_error) {
-    die("Connection failed: " . $conn -> connect_error);
     echo json_encode('died from cringe');
+    die("Connection failed: " . $conn -> connect_error);
   }
   
   $sql = "SELECT * FROM colordata";
