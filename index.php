@@ -10,6 +10,11 @@
   $query_builder = TRUE;
   // Connect to DB
   $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+
+  if ($conn -> connect_error) {
+    echo json_encode('died from cringe');
+    die("Connection failed: " . $conn -> connect_error);
+  }
   
   $sql = "SELECT * FROM colordata";
 
