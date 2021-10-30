@@ -1,5 +1,4 @@
 <?php
-  // header('Content-Type: application/json');
-  header("Access-Control-Allow-Origin: * ");  
-  echo "boba";
+  // header("Access-Control-Allow-Origin: * ");  
+  echo 'Привет, ' . htmlspecialchars($_GET["name"]) . '!';
 ?>
