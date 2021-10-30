@@ -1,7 +1,7 @@
 <?php
   header("Access-Control-Allow-Origin: * ");  
   
-  $db_url = parse_url(getenv('@eu-cdbr-west-01.cleardb.com'));
+  $db_url = parse_url(getenv('https://@eu-cdbr-west-01.cleardb.com'));
 
   $servername = $db_url["host"];
   $username = $db_url["user"];
