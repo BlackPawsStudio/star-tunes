@@ -10,6 +10,7 @@
   // Check connection
   if ($conn -> connect_error) {
     die("Connection failed: " . $conn -> connect_error);
+    echo json_encode('died from cringe');
   }
   
   $sql = "SELECT * FROM colordata";
