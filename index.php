@@ -20,7 +20,7 @@
 
   $result = $conn->query($sql);
   
-  echo json_encode($sql);
+  echo json_encode($result);
   $conn->close();
 
   // echo json_encode('Привет, ' . htmlspecialchars($_GET["name"]) . '!');
