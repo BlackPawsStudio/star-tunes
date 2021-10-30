@@ -1,7 +1,7 @@
 <?php
   header("Access-Control-Allow-Origin: * ");  
   
-  $servername = 'https://@eu-cdbr-west-01.cleardb.com';
+  $servername = 'localhost';
   $username = 'b3c3aff8b732c2';
   $password = '732bc427';
   $dbname = 'heroku_01d49df919a24e7';
