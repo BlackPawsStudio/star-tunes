@@ -20,8 +20,8 @@
 
     $sql = "INSERT colordata(id) values (1)";
     $result = mysqli_query($conn, $sql);
-    $user = mysqli_fetch_all($result);
-    echo json_encode($user);
+    // $user = mysqli_fetch_all($result);
+    // echo json_encode($user);
 
   $conn->close();
 
