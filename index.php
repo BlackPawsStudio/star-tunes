@@ -20,7 +20,7 @@
   $result = mysqli_query($conn, $sql);
   $user = mysqli_fetch_assoc($result);
   // var_export($user);
-  echo ['name' => 'cringe'];
+  echo json_encode(['name' => 'cringe']);
 
   $conn->close();
 
