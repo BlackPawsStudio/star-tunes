@@ -16,7 +16,7 @@
   }
   
 
-  $sql = "SELECT * FROM 'colordata'";
+  $sql = "SELECT * FROM colordata WHERE id = 2";
   $result = mysqli_query($conn, $sql);
   $user = mysqli_fetch_assoc($result);
   // mysqli_free_result($result);
