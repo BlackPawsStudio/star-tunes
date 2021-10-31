@@ -21,7 +21,7 @@
   $result = mysqli_query($conn, $sql);
   $user = mysqli_fetch_assoc($result);
   // var_export($user);
-  echo $user;
+  echo json_encode($user);
 
   $conn->close();
 
