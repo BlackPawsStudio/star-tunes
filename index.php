@@ -1,5 +1,6 @@
 <?php
   header("Access-Control-Allow-Origin: * ");  
+  header('Content-Type: application/json');
   
   $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
   $cleardb_server = $cleardb_url["host"];
