@@ -17,7 +17,7 @@
   }
   
 
-  $sql = "SELECT id FROM colordata.columns";
+  $sql = "SELECT id FROM colordata";
   $result = mysqli_query($conn, $sql);
   $user = mysqli_fetch_assoc($result);
   // var_export($user);
