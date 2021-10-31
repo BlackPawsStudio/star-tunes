@@ -19,7 +19,7 @@
 
   $sql = "SELECT id FROM colordata";
   $result = mysqli_query($conn, $sql);
-  $user = mysqli_fetch_assoc($result);
+  $user = mysqli_fetch_all($result);
   // var_export($user);
   echo json_encode($user);
 
