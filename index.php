@@ -20,7 +20,7 @@
   $result = mysqli_query($conn, $sql);
   $user = mysqli_fetch_assoc($result);
   // mysqli_free_result($result);
-  print_r($user);
+  echo json_encode($user);
 
   $conn->close();
 
