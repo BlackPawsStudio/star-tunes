@@ -19,8 +19,8 @@
   $sql = "SELECT * FROM colordata WHERE id = 2";
   $result = mysqli_query($conn, $sql);
   $user = mysqli_fetch_assoc($result);
-  // mysqli_free_result($result);
-  echo json_encode(var_export($user));
+  // var_export($user);
+  echo json_encode(['name' => 'cringe']);
 
   $conn->close();
 
