@@ -16,18 +16,37 @@
     die("Connection failed: " . $conn -> connect_error);
   }
   
-  if (htmlspecialchars($_GET["request"]) === "color") {
+  function sendColor() {
     $sql = "SELECT * FROM colordata";
     $result = mysqli_query($conn, $sql);
-    $user = mysqli_fetch_all($result);
-    echo json_encode($user);
+    $colors = mysqli_fetch_all($result);
+    echo json_encode($colors);
   }
 
-  if (htmlspecialchars($_GET["request"]) === "waves") {
+  function sendWaves() {
     $sql = "SELECT * FROM wavetype";
     $result = mysqli_query($conn, $sql);
-    $user = mysqli_fetch_all($result);
-    echo json_encode($user);
+    $waves = mysqli_fetch_all($result);
+    echo json_encode($waves);
+  }
+
+  function sendUsers() {
+    $sql = "SELECT * FROM users";
+    $result = mysqli_query($conn, $sql);
+    $users = mysqli_fetch_all($result);
+    echo json_encode($users);
+  }
+
+  switch (htmlspecialchars($_GET["request"])) {
+    case "color":
+       sendColor();
+       break;
+    case "waves":
+      sendWaves();
+      break;
+    case "users": 
+      sendUsers();
+      break;
   }
 
   $conn->close();
