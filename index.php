@@ -18,21 +18,21 @@
   
   function sendColor() {
     $sql = "SELECT * FROM colordata";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($GLOBALS[$conn], $sql);
     $colors = mysqli_fetch_all($result);
     echo json_encode($colors);
   }
 
   function sendWaves() {
     $sql = "SELECT * FROM wavetype";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($GLOBALS[$conn], $sql);
     $waves = mysqli_fetch_all($result);
     echo json_encode($waves);
   }
 
   function sendUsers() {
     $sql = "SELECT * FROM users";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($GLOBALS[$conn], $sql);
     $users = mysqli_fetch_all($result);
     echo json_encode($users);
   }
