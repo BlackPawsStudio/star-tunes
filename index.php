@@ -23,5 +23,12 @@
     echo json_encode($user);
   }
 
+  if (htmlspecialchars($_GET["request"]) === "waves") {
+    $sql = "SELECT * FROM wavetype";
+    $result = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_all($result);
+    echo json_encode($user);
+  }
+
   $conn->close();
 ?>
