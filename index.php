@@ -16,13 +16,12 @@
     die("Connection failed: " . $conn -> connect_error);
   }
   
-
-  $sql = "SELECT * FROM colordata";
-  $result = mysqli_query($conn, $sql);
-  $user = mysqli_fetch_all($result);
-  echo json_encode($user);
+  if (htmlspecialchars($_GET["request"]) === "color") {
+    $sql = "SELECT * FROM colordata";
+    $result = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_all($result);
+    echo json_encode($user);
+  }
 
   $conn->close();
-
-  // echo json_encode('Привет, ' . htmlspecialchars($_GET["name"]) . '!');
 ?>
