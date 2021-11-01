@@ -31,19 +31,19 @@
   switch (htmlspecialchars($_GET["request"])) {
     case "color":
       $sql = "SELECT * FROM colordata";
-      $result = mysqli_query($GLOBALS[$conn], $sql);
+      $result = mysqli_query($conn, $sql);
       $colors = mysqli_fetch_all($result);
       echo json_encode($colors);
       break;
     case "waves":
       $sql = "SELECT * FROM wavetype";
-      $result = mysqli_query($GLOBALS[$conn], $sql);
+      $result = mysqli_query($conn, $sql);
       $waves = mysqli_fetch_all($result);
       echo json_encode($waves);
       break;
     case "users": 
       $sql = "SELECT * FROM users";
-      $result = mysqli_query($GLOBALS[$conn], $sql);
+      $result = mysqli_query($conn, $sql);
       $users = mysqli_fetch_all($result);
       echo json_encode($users);
       break;
