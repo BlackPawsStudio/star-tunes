@@ -49,5 +49,12 @@
       break;
   }
 
+  switch (htmlspecialchars($_POST['create'])) {
+    case 'user':
+      $sql = "INSERT INTO users VALUES ()";
+      $result = mysqli_query($conn, $sql);
+      break;
+  }
+
   $conn->close();
 ?>
