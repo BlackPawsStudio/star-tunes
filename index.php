@@ -16,36 +16,36 @@
     die("Connection failed: " . $conn -> connect_error);
   }
   
-  function sendColor() {
-    $sql = "SELECT * FROM colordata";
-    $result = mysqli_query($GLOBALS[$conn], $sql);
-    $colors = mysqli_fetch_all($result);
-    echo json_encode($colors);
-  }
+  // function sendColor() {
+    
+  // }
 
-  function sendWaves() {
-    $sql = "SELECT * FROM wavetype";
-    $result = mysqli_query($GLOBALS[$conn], $sql);
-    $waves = mysqli_fetch_all($result);
-    echo json_encode($waves);
-  }
+  // function sendWaves() {
+    
+  // }
 
-  function sendUsers() {
-    $sql = "SELECT * FROM users";
-    $result = mysqli_query($GLOBALS[$conn], $sql);
-    $users = mysqli_fetch_all($result);
-    echo json_encode($users);
-  }
+  // function sendUsers() {
+    
+  // }
 
   switch (htmlspecialchars($_GET["request"])) {
     case "color":
-       sendColor();
-       break;
+      $sql = "SELECT * FROM colordata";
+      $result = mysqli_query($GLOBALS[$conn], $sql);
+      $colors = mysqli_fetch_all($result);
+      echo json_encode($colors);
+      break;
     case "waves":
-      sendWaves();
+      $sql = "SELECT * FROM wavetype";
+      $result = mysqli_query($GLOBALS[$conn], $sql);
+      $waves = mysqli_fetch_all($result);
+      echo json_encode($waves);
       break;
     case "users": 
-      sendUsers();
+      $sql = "SELECT * FROM users";
+      $result = mysqli_query($GLOBALS[$conn], $sql);
+      $users = mysqli_fetch_all($result);
+      echo json_encode($users);
       break;
   }
 
