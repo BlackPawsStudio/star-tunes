@@ -51,11 +51,19 @@
 
   switch (htmlspecialchars($_POST['create'])) {
     case 'user':
-      $sql = "INSERT INTO `users` (`id`, `name`, `password`, `rating`, `marked`, `pfp`) VALUES (".htmlspecialchars($_POST['id']).",".htmlspecialchars($_POST['name'])." ,".htmlspecialchars($_POST['password']).",".htmlspecialchars($_POST['rating']).",".htmlspecialchars($_POST['marked']).", ".htmlspecialchars($_POST['pfp']).")";
-      // $result = mysqli_query($conn, $sql);
-      $conn->query($sql);
+      $sql = "INSERT INTO users (id, name, password, rating, marked, pfp) VALUES (".htmlspecialchars($_POST['id']).",".htmlspecialchars($_POST['name'])." ,".htmlspecialchars($_POST['password']).",".htmlspecialchars($_POST['rating']).",".htmlspecialchars($_POST['marked']).", ".htmlspecialchars($_POST['pfp']).")";
+      if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+      } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+      }
       break;
   }
 
   $conn->close();
 ?>
+
+<!-- $sql = "INSERT INTO MyGuests (firstname, lastname, email)
+VALUES ('John', 'Doe', 'john@example.com')";
+
+ -->
