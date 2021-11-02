@@ -51,7 +51,14 @@
 
   switch (htmlspecialchars($_POST['create'])) {
     case 'user':
-      $sql = "INSERT INTO users VALUES ()";
+      $sql = "INSERT INTO users VALUES ("
+      . htmlspecialchars($_POST['id']) . ", "
+      . htmlspecialchars($_POST['name']) . ", "
+      . htmlspecialchars($_POST['password']) . ", "
+      . htmlspecialchars($_POST['rating']) . ", "
+      . htmlspecialchars($_POST['marked']) . ", "
+      . htmlspecialchars($_POST['pfp']) .
+      ")";
       $result = mysqli_query($conn, $sql);
       break;
   }
