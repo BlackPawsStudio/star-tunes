@@ -51,13 +51,13 @@
 
   switch (htmlspecialchars($_GET['create'])) {
     case 'user':
-      // $sql = "INSERT INTO users (id, name, password, rating, marked, pfp) VALUES (".htmlspecialchars($_POST['id']).",".htmlspecialchars($_POST['name'])." ,".htmlspecialchars($_POST['password']).",".htmlspecialchars($_POST['rating']).",".htmlspecialchars($_POST['marked']).", ".htmlspecialchars($_POST['pfp']).")";
-      // if ($conn->query($sql) === TRUE) {
-      //   echo "New record created successfully";
-      // } else {
-      //   echo "Error: " . $sql . "<br>" . $conn->error;
-      // }
-      echo "aboba";
+      $sql = "INSERT INTO users (id, name, password, rating, marked, pfp) VALUES (".htmlspecialchars($_POST['id']).",".htmlspecialchars($_POST['name'])." ,".htmlspecialchars($_POST['password']).",".htmlspecialchars($_POST['rating']).",".htmlspecialchars($_POST['marked']).", ".htmlspecialchars($_POST['pfp']).")";
+      if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+      } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+      }
+      // echo "aboba";
       break;
   }
 
