@@ -51,7 +51,7 @@
 
   switch (htmlspecialchars($_GET['create'])) {
     case 'user':
-      $sql = 'INSERT INTO users (name, password, rating, marked, pfp) VALUES (\''.$_GET['name'].'\', \''.$_GET['password'].'\','.$_GET['rating'].', '.$_GET['marked'].', '.$_GET['pfp'].')';
+      $sql = 'INSERT INTO users (id, name, password, rating, marked, pfp) VALUES (1, \''.$_GET['name'].'\', \''.$_GET['password'].'\','.$_GET['rating'].', '.$_GET['marked'].', '.$_GET['pfp'].')';
       if ($conn->query($sql) === TRUE) {
         echo 'New record created successfully';
       } else {
