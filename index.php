@@ -28,7 +28,7 @@
     
   // }
 
-  switch (htmlspecialchars($_GET['request'])) {
+  switch ($_GET['request']) {
     case 'color':
       $sql = 'SELECT * FROM colordata';
       $result = mysqli_query($conn, $sql);
@@ -49,11 +49,22 @@
       break;
   }
 
-  switch (htmlspecialchars($_GET['create'])) {
+  switch ($_GET['create']) {
     case 'user':
       $sql = 'INSERT INTO users (id, name, password, rating, marked, pfp) VALUES ('.$_GET['id'].', \''.$_GET['name'].'\', \''.$_GET['password'].'\','.$_GET['rating'].', '.$_GET['marked'].', '.$_GET['pfp'].')';
       if ($conn->query($sql) === TRUE) {
         echo 'New record created successfully';
+      } else {
+        echo 'Error: ' . $sql . '\n' . $conn->error;
+      }
+      break;
+  }
+
+  switch ($_GET['delete']) {
+    case 'user':
+      $sql = 'DELETE FROM users WHERE id = '. $_GET['id'] .'';
+      if ($conn->query($sql) === TRUE) {
+        echo 'User deleted successfully';
       } else {
         echo 'Error: ' . $sql . '\n' . $conn->error;
       }
