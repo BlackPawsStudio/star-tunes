@@ -71,5 +71,16 @@
       break;
   }
 
+  switch ($_GET['update']) {
+    case 'user':
+      $sql = 'UPDATE users SET pfp=' .$_GET['pfp']. 'WHERE id = ' .$_GET['id']. '';
+      if ($conn->query($sql) === TRUE) {
+        echo json_encode('Updated successfully');
+      } else {
+        echo json_encode('Error: ' . $sql . '\n' . $conn->error);
+      }
+      break;
+  }
+
   $conn->close();
 ?>
