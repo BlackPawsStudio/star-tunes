@@ -73,7 +73,7 @@
 
   switch ($_GET['update']) {
     case 'user':
-      $sql = 'UPDATE users SET pfp=' .$_GET['pfp']. ' WHERE id = ' .$_GET['id']';
+      $sql = 'UPDATE users SET pfp=' .$_GET['pfp']. ' WHERE id = ' .$_GET['id'].'';
       if ($conn->query($sql) === TRUE) {
         echo json_encode('Updated successfully');
       } else {
