@@ -232,8 +232,7 @@ footer{
 }
 #songs-list{
   color: #C1272D;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: auto;
   width: 45%;
   height: 80%;
   border-radius: 10px;
@@ -375,12 +374,11 @@ footer{
 }
 #profile:hover > #profile-content{
   margin-top: -10px;
-  /* padding-top: 5px; */
   padding-bottom: 10px;
   border: 3px solid #C1272D;
   border-top: none;
   width: calc(100% - 6px);
-  height: calc(122px - 23px);
+  height: calc(130px - 23px);
 }
 .profile-btn{
   font-weight: bold;
