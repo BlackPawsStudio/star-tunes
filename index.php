@@ -53,9 +53,9 @@
     case 'user':
       $sql = 'INSERT INTO users (id, name, password, rating, marked, pfp) VALUES ('.$_GET['id'].', \''.$_GET['name'].'\', \''.$_GET['password'].'\','.$_GET['rating'].', '.$_GET['marked'].', '.$_GET['pfp'].')';
       if ($conn->query($sql) === TRUE) {
-        echo 'New record created successfully';
+        echo json_encode('New record created successfully');
       } else {
-        echo 'Error: ' . $sql . '\n' . $conn->error;
+        echo json_encode('Error: ' . $sql . '\n' . $conn->error);
       }
       break;
   }
@@ -64,9 +64,9 @@
     case 'user':
       $sql = 'DELETE FROM users WHERE id = '. $_GET['id'] .'';
       if ($conn->query($sql) === TRUE) {
-        echo 'User deleted successfully';
+        echo json_encode('User deleted successfully');
       } else {
-        echo 'Error: ' . $sql . '\n' . $conn->error;
+        echo json_encode('Error: ' . $sql . '\n' . $conn->error);
       }
       break;
   }
