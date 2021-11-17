@@ -58,10 +58,6 @@
         echo json_encode('Error: ' . $sql . '\n' . $conn->error);
       }
       break;
-    case 'file':
-      $file = $_GET['file'];
-      echo json_encode($file);
-      break;
   }
 
   switch ($_GET['delete']) {
