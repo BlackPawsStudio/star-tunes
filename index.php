@@ -17,16 +17,6 @@
     echo json_encode('died from cringe  ');
     die('Connection failed: ' . $conn -> connect_error);
   }
-    
-  // }
-
-  // function sendWaves() {
-    
-  // }
-
-  // function sendUsers() {
-    
-  // }
 
   switch ($_GET['request']) {
     case 'color':
@@ -47,6 +37,12 @@
       $users = mysqli_fetch_all($result);
       echo json_encode($users);
       break;
+    case 'songs':
+      $sql = 'SELECT * FROM songs';
+      $result = mysqli_query($conn, $sql);
+      $users = mysqli_fetch_all($result);
+      echo json_encode($users);
+      break;
   }
 
   switch ($_GET['create']) {
@@ -58,6 +54,8 @@
         echo json_encode('Error: ' . $sql . '\n' . $conn->error);
       }
       break;
+    case 'song':
+      $sql = 'INSERT INTO songs (id, name, url, marks, reviews, author) VALUES ('.$_GET['id'].', \''.$_GET['name'].'\', \''.$_GET['url'].'\','.$_GET['mark'].', '.$_GET['reviews'].', '.$_GET['author'].')';
   }
 
   switch ($_GET['delete']) {
