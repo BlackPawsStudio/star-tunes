@@ -2,7 +2,9 @@
   header('Access-Control-Allow-Origin: * ');  
   header('Content-Type: application/json');
   
-  $cleardb_url = parse_url(getenv('CLEARDB_DATABASE_URL'));
+ 
+  
+  // function sendColor() { $cleardb_url = parse_url(getenv('CLEARDB_DATABASE_URL'));
   $cleardb_server = $cleardb_url['host'];
   $cleardb_username = $cleardb_url['user'];
   $cleardb_password = $cleardb_url['pass'];
@@ -15,8 +17,6 @@
     echo json_encode('died from cringe  ');
     die('Connection failed: ' . $conn -> connect_error);
   }
-  
-  // function sendColor() {
     
   // }
 
@@ -57,6 +57,10 @@
       } else {
         echo json_encode('Error: ' . $sql . '\n' . $conn->error);
       }
+      break;
+    case 'file':
+      $file = $_GET['file'];
+      echo json_encode($file);
       break;
   }
 
