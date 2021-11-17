@@ -56,6 +56,12 @@
       break;
     case 'song':
       $sql = 'INSERT INTO songs (id, name, url, marks, reviews, author) VALUES ('.$_GET['id'].', \''.$_GET['name'].'\', \''.$_GET['url'].'\','.$_GET['mark'].', '.$_GET['reviews'].', '.$_GET['author'].')';
+      if ($conn->query($sql) === TRUE) {
+        echo json_encode('New record created successfully');
+      } else {
+        echo json_encode('Error: ' . $sql . '\n' . $conn->error);
+      }
+      break;
   }
 
   switch ($_GET['delete']) {
