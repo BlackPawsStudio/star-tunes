@@ -74,7 +74,7 @@
       }
       break;
     case 'songs':
-      $sql = 'DELETE FROM songs WHERE author = ' . $_GET['author'] . '';
+      $sql = 'DELETE FROM songs WHERE author = \'' . $_GET['author'] . '\'';
       if ($conn->query($sql) === TRUE) {
         echo json_encode('User deleted successfully');
       } else {
