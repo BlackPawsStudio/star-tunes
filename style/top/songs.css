@@ -47,13 +47,13 @@
   justify-content: space-between;
   flex-direction: column;
 }
-.play-button:focus{
+.active-btn{
   transform: scale(80%)!important;
 }
-.play-button:focus > .play-button-front{
+.active-btn > .play-button-front{
   width: 0;
 }
-.play-button:focus > .play-button-back{
+.active-btn > .play-button-back{
   background-image: url(../../assets/img/pause-red.svg);
 }
 .play-button:hover{
@@ -116,6 +116,7 @@
   justify-content: space-between;
   flex-direction: column;
   row-gap: 10px;
+  margin-top: 30px;
 }
 @media (max-width: 860px) {
   .play-line{

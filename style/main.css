@@ -231,6 +231,7 @@ footer{
   justify-content: center;
 }
 #songs-list{
+  position: relative;
   color: #C1272D;
   overflow: auto;
   width: 45%;
@@ -428,7 +429,7 @@ footer{
   row-gap: 30px;
 }
 #question-btns{
-  width: 40%;
+  width: 50%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -476,9 +477,9 @@ footer{
   justify-content: center;
   row-gap: 20px;
 }
-#message-btn{
+.message-btn{
   cursor: pointer;
-  width: 50px;
+  width: 70px;
   height: 25px;
   border-radius: 10px;
   border: 3px solid #191919;
@@ -486,14 +487,24 @@ footer{
   background: none;
   font-weight: bold;
 }
-#message-btn:hover{
+.message-btn:hover{
   transform: scale(110%);
 }
-#message-btn:active{
+.message-btn:active{
   transform: scale(90%);
 }
 #message-text{
   font-size: 20px;
+}
+h3{
+  z-index: 5;
+  transform: translateY(-20px);
+  width: 43%;
+  padding: 11px;
+  padding-bottom: 9px;
+  height: 30px;
+  position: fixed;
+  background: #0e0e0e;
 }
 /* 
 #C1272D красный
