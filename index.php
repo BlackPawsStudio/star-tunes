@@ -76,11 +76,18 @@
     case 'songs':
       $sql = 'DELETE FROM songs WHERE author = \'' . $_GET['author'] . '\'';
       if ($conn->query($sql) === TRUE) {
-        echo json_encode('User deleted successfully');
+        echo json_encode('Songs deleted successfully');
       } else {
         echo json_encode('Error: ' . $sql . '\n' . $conn->error);
       }
       break;
+    case 'song':
+      $sql = 'DELETE FROM songs WHERE id = ' . $_GET['id'] . '';
+      if ($conn->query($sql) === TRUE) {
+        echo json_encode('Song deleted successfully');
+      } else {
+        echo json_encode('Error: ' . $sql . '\n' . $conn->error);
+      }
   }
 
   switch ($_GET['update']) {
