@@ -73,6 +73,14 @@
         echo json_encode('Error: ' . $sql . '\n' . $conn->error);
       }
       break;
+    case 'songs':
+      $sql = 'DELETE FROM songs WHERE author = ' . $_GET['author'] . '';
+      if ($conn->query($sql) === TRUE) {
+        echo json_encode('User deleted successfully');
+      } else {
+        echo json_encode('Error: ' . $sql . '\n' . $conn->error);
+      }
+      break;
   }
 
   switch ($_GET['update']) {
