@@ -40,8 +40,14 @@
     case 'songs':
       $sql = 'SELECT * FROM songs';
       $result = mysqli_query($conn, $sql);
-      $users = mysqli_fetch_all($result);
-      echo json_encode($users);
+      $songs = mysqli_fetch_all($result);
+      echo json_encode($songs);
+      break;
+    case 'octaves':
+      $sql = 'SELECT * FROM octaves';
+      $result = mysqli_query($conn, $sql);
+      $octaves = mysqli_fetch_all($result);
+      echo json_encode($octaves);
       break;
   }
 
