@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   column-gap: 100px;
+  user-select: none;
 }
 .admin-panel-section{
   position: relative;
@@ -51,6 +52,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  row-gap: 5px;
 }
 .url-container{
   width: 170px;
@@ -62,4 +64,14 @@
   color: #C1272D;
   border: 3px solid #C1272D;
   border-radius: 5px;
+}
+.admin-panel-buttons{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  row-gap: 10px;
+}
+#admin-aside-link{
+  display: none;
 }

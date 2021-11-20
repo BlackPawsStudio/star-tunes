@@ -302,6 +302,21 @@
   justify-content: center;
   row-gap: 30px;
 }
+.update-song{
+  background: none;
+  color: #C1272D;
+  border: 3px solid #C1272D;
+  border-radius: 10px;
+  height: 50px;
+  width: 100px;
+  transition: all .5s;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 .delete-song{
   background: none;
   color: #C1272D;
@@ -321,6 +336,10 @@
   background-color: #C1272D;
   color: #191919;
 }
+.update-song:hover{
+  background-color: #C1272D;
+  color: #191919;
+}
 .song-id{
   text-align: center;
   width: 30px;
@@ -328,4 +347,10 @@
   font-size: 24px;
   border: 3px solid #C1272D;
   border-radius: 5px;
+}
+.song-btns{
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 10px;
 }
