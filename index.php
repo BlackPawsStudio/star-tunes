@@ -47,6 +47,12 @@
       $sql = 'SELECT * FROM octaves';
       $result = mysqli_query($conn, $sql);
       $octaves = mysqli_fetch_all($result);
+      for ($i = 0; $i < count($octaves); $i++) {
+        $sql = 'SELECT * FROM ' . $octaves[$i][2] . '';
+        $octResult = mysqli_query($conn, $sql);
+        $octave = mysqli_fetch_all($octResult);
+        $octaves[$i][2] = $octave;
+      }
       echo json_encode($octaves);
       break;
   }
