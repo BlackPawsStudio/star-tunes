@@ -45,9 +45,9 @@
       break;
   }
 
-  switch ($_GET['create']) {
+  switch ($_POST['create']) {
     case 'user':
-      $sql = 'INSERT INTO users (id, name, password, rating, marked, pfp) VALUES ('.$_GET['id'].', \''.$_GET['name'].'\', \''.$_GET['password'].'\','.$_GET['rating'].', '.$_GET['marked'].', '.$_GET['pfp'].')';
+      $sql = 'INSERT INTO users (id, name, password, rating, marked, pfp) VALUES ('.$_POST['id'].', \''.$_POST['name'].'\', \''.$_POST['password'].'\','.$_POST['rating'].', '.$_POST['marked'].', '.$_POST['pfp'].')';
       if ($conn->query($sql) === TRUE) {
         echo json_encode('New record created successfully');
       } else {
@@ -55,7 +55,7 @@
       }
       break;
     case 'song':
-      $sql = 'INSERT INTO songs (id, name, url, marks, reviews, author) VALUES ('.$_GET['id'].', \''.$_GET['name'].'\', \''.$_GET['url'].'\','.$_GET['mark'].', '.$_GET['reviews'].', \''.$_GET['author'].'\')';
+      $sql = 'INSERT INTO songs (id, name, url, marks, reviews, author) VALUES ('.$_POST['id'].', \''.$_POST['name'].'\', \''.$_POST['url'].'\','.$_POST['mark'].', '.$_POST['reviews'].', \''.$_POST['author'].'\')';
       if ($conn->query($sql) === TRUE) {
         echo json_encode('New record created successfully');
       } else {
@@ -64,9 +64,9 @@
       break;
   }
 
-  switch ($_GET['delete']) {
+  switch ($_DELETE['delete']) {
     case 'user':
-      $sql = 'DELETE FROM users WHERE id = '. $_GET['id'] .'';
+      $sql = 'DELETE FROM users WHERE id = '. $_DELETE['id'] .'';
       if ($conn->query($sql) === TRUE) {
         echo json_encode('User deleted successfully');
       } else {
@@ -74,7 +74,7 @@
       }
       break;
     case 'songs':
-      $sql = 'DELETE FROM songs WHERE author = \'' . $_GET['author'] . '\'';
+      $sql = 'DELETE FROM songs WHERE author = \'' . $_DELETE['author'] . '\'';
       if ($conn->query($sql) === TRUE) {
         echo json_encode('Songs deleted successfully');
       } else {
@@ -82,7 +82,7 @@
       }
       break;
     case 'song':
-      $sql = 'DELETE FROM songs WHERE id = ' . $_GET['id'] . '';
+      $sql = 'DELETE FROM songs WHERE id = ' . $_DELETE['id'] . '';
       if ($conn->query($sql) === TRUE) {
         echo json_encode('Song deleted successfully');
       } else {
@@ -90,9 +90,9 @@
       }
   }
 
-  switch ($_GET['update']) {
+  switch ($_PUT['update']) {
     case 'user':
-      $sql = 'UPDATE users SET pfp=' .$_GET['pfp']. ' WHERE id = ' .$_GET['id'].'';
+      $sql = 'UPDATE users SET pfp=' .$_PUT['pfp']. ' WHERE id = ' .$_PUT['id'].'';
       if ($conn->query($sql) === TRUE) {
         echo json_encode('Updated successfully');
       } else {
@@ -100,7 +100,7 @@
       }
       break;
     case 'song':
-      $sql = 'UPDATE songs SET name=\'' .$_GET['name']. '\', url=\'' . $_GET['url'] . '\' WHERE id = ' .$_GET['id'].'';
+      $sql = 'UPDATE songs SET name=\'' .$_PUT['name']. '\', url=\'' . $_PUT['url'] . '\' WHERE id = ' .$_PUT['id'].'';
       if ($conn->query($sql) === TRUE) {
         echo json_encode('Updated successfully');
       } else {
