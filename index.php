@@ -99,6 +99,14 @@
         echo json_encode('Error: ' . $sql . '\n' . $conn->error);
       }
       break;
+    case 'song':
+      $sql = 'UPDATE songs SET name=\'' .$_GET['name']. '\', url=\'' . $_GET['url'] . ' WHERE id = ' .$_GET['id'].'';
+      if ($conn->query($sql) === TRUE) {
+        echo json_encode('Updated successfully');
+      } else {
+        echo json_encode('Error: ' . $sql . '\n' . $conn->error);
+      }
+      break;
   }
 
   $conn->close();
