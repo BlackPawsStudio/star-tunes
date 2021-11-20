@@ -1,0 +1,65 @@
+#admin-panel-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 100px;
+}
+.admin-panel-section{
+  position: relative;
+  color: #C1272D;
+  overflow: auto;
+  width: 30%;
+  height: 80%;
+  border-radius: 10px;
+  background-color: #191919;
+  box-shadow: 0 0 300px #000 inset;
+  padding: 20px;
+}
+.admin-panel-section::-webkit-scrollbar {
+  width: 12px;
+}
+.admin-panel-section::-webkit-scrollbar-track {
+  background:rgba(255, 255, 255, 0.224); 
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+.admin-panel-section::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #C1272D; 
+}
+.admin-panel-list{
+  list-style: none;
+  margin-top: 30px;
+}
+.admin-panel-h3{
+  width: 28%;
+}
+.admin-panel-element{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 3px solid #C1272D;
+  border-bottom: 3px solid #C1272D;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.admin-panel-user-data{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.url-container{
+  width: 170px;
+  height: 20px;
+  margin-left: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background: none;
+  color: #C1272D;
+  border: 3px solid #C1272D;
+  border-radius: 5px;
+}

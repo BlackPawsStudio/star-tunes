@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 .top-position{
   text-align: center;
@@ -89,6 +90,9 @@
   width: 330px;
   border-top: 5px dashed #C1272D;
 }
+.song-info-mark{
+  height: 22px;
+}
 .song-info{
   width: 105px;
   padding: 5px;
@@ -115,7 +119,6 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  row-gap: 10px;
   margin-top: 30px;
 }
 @media (max-width: 860px) {
