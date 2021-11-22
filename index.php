@@ -141,7 +141,7 @@
         }
       }
       else {
-        if ($_get['genre'] != '') {
+        if ($_GET['genre'] != '') {
           $sql = 'SELECT * FROM songs WHERE genre = \'' . $_GET['genre'] . '\'';
           $result = mysqli_query($conn, $sql);
           $songs = mysqli_fetch_all($result);
