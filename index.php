@@ -125,5 +125,35 @@
       break;
   }
 
+  switch ($_GET['filter']) {
+    case 'songs': 
+      if ($_GET['author'] != '' && $_get['genre'] != '') {
+        $sql = 'SELECT * FROM genres WHERE author = \'' . $_GET['author'] . '\' AND genre = \'' . $_GET['genre'] . '\'';
+        $result = mysqli_query($conn, $sql);
+        $genres = mysqli_fetch_all($result);
+        echo json_encode($genres);
+      }
+      else {
+        if ($_GET['author'] != '') {
+          $sql = 'SELECT * FROM genres WHERE author = \'' . $_GET['author'] . '\'';
+          $result = mysqli_query($conn, $sql);
+          $genres = mysqli_fetch_all($result);
+          echo json_encode($genres);
+        }
+        else {
+          if ($_GET['genre'] != '') {
+            $sql = 'SELECT * FROM genres WHERE genre = \'' . $_GET['genre'] . '\'';
+            $result = mysqli_query($conn, $sql);
+            $genres = mysqli_fetch_all($result);
+            echo json_encode($genres);
+          }
+          else {
+            echo json_encode('Not awailable to sort');
+          }
+        }
+      }
+      break;
+  }
+
   $conn->close();
 ?>
