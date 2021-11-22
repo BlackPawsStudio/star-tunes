@@ -126,7 +126,12 @@
           $sql = 'SELECT * FROM genres WHERE author = \'' . $_GET['author'] . '\' AND genre = \'' . $_GET['genre'] . '\'';
           $result = mysqli_query($conn, $sql);
           $songs = mysqli_fetch_all($result);
-          echo json_encode($songs);
+          if ($songs == '') {
+            echo json_encode('No matched values');
+          }
+          else {
+            echo json_encode($songs);
+          }
         }
         else {
           $sql = 'SELECT * FROM songs WHERE author = \'' . $_GET['author'] . '\'';
