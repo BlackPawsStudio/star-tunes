@@ -36,7 +36,7 @@
       echo json_encode($users);
       break;
     case 'songs':
-      $sql = 'SELECT * FROM songs WHERE author = "aboba"';
+      $sql = 'SELECT * FROM songs';
       $result = mysqli_query($conn, $sql);
       $songs = mysqli_fetch_all($result);
       echo json_encode($songs);
@@ -126,7 +126,7 @@
           $sql = 'SELECT * FROM genres WHERE author = \'' . $_GET['author'] . '\' AND genre = \'' . $_GET['genre'] . '\'';
           $result = mysqli_query($conn, $sql);
           $songs = mysqli_fetch_all($result);
-          if ($songs == '') {
+          if ($songs == []) {
             echo json_encode('No matched values');
           }
           else {
