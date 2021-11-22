@@ -36,7 +36,7 @@
       echo json_encode($users);
       break;
     case 'songs':
-      $sql = 'SELECT * FROM songs WHERE author = "aboba"';
+      $sql = 'SELECT * FROM songs';
       $result = mysqli_query($conn, $sql);
       $songs = mysqli_fetch_all($result);
       echo json_encode($songs);
