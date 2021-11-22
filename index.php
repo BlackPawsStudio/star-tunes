@@ -1,8 +1,6 @@
-<?php
+  <?php
   header('Access-Control-Allow-Origin: * ');  
   header('Content-Type: application/json');
-  
- 
   
   $cleardb_url = parse_url(getenv('CLEARDB_DATABASE_URL'));
   $cleardb_server = $cleardb_url['host'];
@@ -54,6 +52,12 @@
         $octaves[$i][2] = $octave;
       }
       echo json_encode($octaves);
+      break;
+    case 'genres':
+      $sql = 'SELECT * FROM genres';
+      $result = mysqli_query($conn, $sql);
+      $genres = mysqli_fetch_all($result);
+      echo json_encode($genres);
       break;
   }
 
