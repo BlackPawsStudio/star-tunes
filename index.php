@@ -123,7 +123,7 @@
     case 'songs': 
       if ($_GET['author'] != '') {
         if ($_GET['genre'] != '') {
-          $sql = 'SELECT * FROM genres WHERE author = \'' . $_GET['author'] . '\' AND genre = \'' . $_GET['genre'] . '\'';
+          $sql = 'SELECT * FROM genres WHERE (author = \'' . $_GET['author'] . '\') AND (genre = \'' . $_GET['genre'] . '\')';
           $result = mysqli_query($conn, $sql);
           $songs = mysqli_fetch_all($result);
           if ($songs == []) {
