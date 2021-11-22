@@ -135,22 +135,18 @@
           echo json_encode($songs);
         }
         else {
-          $sql = 'SELECT * FROM songs';
-          $result = mysqli_query($conn, $sql);
-          $songs = mysqli_fetch_all($result);
-          echo json_encode($songs);
-        }
-        if ($_GET['genre'] != '') {
-          $sql = 'SELECT * FROM songs WHERE genre = \'' . $_GET['genre'] . '\'';
-          $result = mysqli_query($conn, $sql);
-          $songs = mysqli_fetch_all($result);
-          echo json_encode($songs);
-        }
-        else {
-          $sql = 'SELECT * FROM songs';
-          $result = mysqli_query($conn, $sql);
-          $songs = mysqli_fetch_all($result);
-          echo json_encode($songs);
+          if ($_GET['genre'] != '') {
+            $sql = 'SELECT * FROM songs WHERE genre = \'' . $_GET['genre'] . '\'';
+            $result = mysqli_query($conn, $sql);
+            $songs = mysqli_fetch_all($result);
+            echo json_encode($songs);
+          }
+          else {
+            $sql = 'SELECT * FROM songs';
+            $result = mysqli_query($conn, $sql);
+            $songs = mysqli_fetch_all($result);
+            echo json_encode($songs);
+          }
         }
       }
       break;
