@@ -148,7 +148,7 @@
             echo json_encode($genres);
           }
           else {
-            echo json_encode('Not awailable to sort');
+            echo json_encode('Not awailable to filter');
           }
         }
       }
