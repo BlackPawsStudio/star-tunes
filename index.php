@@ -155,6 +155,33 @@
         }
       }
       break;
+    case 'search':
+      $sql = 'SELECT * FROM songs WHERE author = \'' . $_GET['value'] . '\'';
+      $result = mysqli_query($conn, $sql);
+      $songs = mysqli_fetch_all($result);
+      if ($songs == []) {
+        $sql = 'SELECT * FROM songs WHERE genre = \'' . strtolower($_GET['value']) . '\'';
+        $result = mysqli_query($conn, $sql);
+        $songs = mysqli_fetch_all($result);
+        if ($songs == []) {
+          $sql = 'SELECT * FROM songs WHERE name = \'' . $_GET['value'] . '\'';
+          $result = mysqli_query($conn, $sql);
+          $songs = mysqli_fetch_all($result);
+          if ($songs == []) {
+            echo json_encode('Connot find anything');
+          }
+          else {
+            echo json_encode($songs);
+          }
+        }
+        else {
+          echo json_encode($songs);
+        }
+      }
+      else {
+        echo json_encode($songs);
+      }
+      break;
   }
 
   $conn->close();
