@@ -168,7 +168,7 @@
           $result = mysqli_query($conn, $sql);
           $songs = mysqli_fetch_all($result);
           if ($songs == []) {
-            echo json_encode('Connot find anything');
+            echo json_encode('Cannot find anything');
           }
           else {
             echo json_encode($songs);
