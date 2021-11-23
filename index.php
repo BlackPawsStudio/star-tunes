@@ -156,19 +156,30 @@
       }
       break;
     case 'search':
-      $sql = 'SELECT * FROM songs WHERE author = \'' . $_GET['value'] . '\'';
-      $result = mysqli_query($conn, $sql);
-      $songs = mysqli_fetch_all($result);
-      if ($songs == []) {
-        $sql = 'SELECT * FROM songs WHERE genre = \'' . strtolower($_GET['value']) . '\'';
+      if ($_GET['value'] == '') {
+        $sql = 'SELECT * FROM songs';
+        $result = mysqli_query($conn, $sql);
+        $songs = mysqli_fetch_all($result);
+        echo json_encode($songs);
+      } 
+      else {
+        $sql = 'SELECT * FROM songs WHERE author = \'' . $_GET['value'] . '\'';
         $result = mysqli_query($conn, $sql);
         $songs = mysqli_fetch_all($result);
         if ($songs == []) {
-          $sql = 'SELECT * FROM songs WHERE name = \'' . $_GET['value'] . '\'';
+          $sql = 'SELECT * FROM songs WHERE genre = \'' . strtolower($_GET['value']) . '\'';
           $result = mysqli_query($conn, $sql);
           $songs = mysqli_fetch_all($result);
           if ($songs == []) {
-            echo json_encode('Cannot find anything');
+            $sql = 'SELECT * FROM songs WHERE name = \'' . $_GET['value'] . '\'';
+            $result = mysqli_query($conn, $sql);
+            $songs = mysqli_fetch_all($result);
+            if ($songs == []) {
+              echo json_encode('Cannot find anything');
+            }
+            else {
+              echo json_encode($songs);
+            }
           }
           else {
             echo json_encode($songs);
@@ -177,9 +188,6 @@
         else {
           echo json_encode($songs);
         }
-      }
-      else {
-        echo json_encode($songs);
       }
       break;
   }
