@@ -503,7 +503,7 @@ footer{
   font-size: 20px;
 }
 h3{
-  z-index: 5;
+  z-index: 4;
   transform: translateY(-20px);
   width: 43%;
   padding: 11px;
@@ -511,6 +511,25 @@ h3{
   height: 30px;
   position: fixed;
   background: #0e0e0e;
+}
+.profile-play-data{
+  height: 70px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.profile-song{
+  text-align: center;
+  height: 100px;
+  list-style-position: inside;
+  color: #C1272D;
+  border-top: 3px solid #C1272D;
+  border-bottom: 3px solid #C1272D;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 /* 
 #C1272D красный

@@ -275,11 +275,12 @@
 }
 #url-btns{
   width: 40%;
-  height: 100px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  
 }
 .url-input{
   height: 20px;
@@ -293,7 +294,7 @@
 #url-question{
   margin-top: 30px;
   width: 300px;
-  height: 250px;
+  height: 285px;
   background-color: #e0eaf0;
   border-radius: 20px;
   display: flex;
@@ -353,4 +354,18 @@
   align-items: center;
   justify-content: space-between;
   column-gap: 10px;
+}
+#genres-select{
+  color: #000;
+  height: 20px;
+  width: 200px;
+  background: #e0eaf0e3;
+  border: 3px solid #191919;
+  border-radius: 30px;
+  padding: 10px;
+  box-shadow: 0 0 10px #000; 
+}
+#genre-text{
+  width: 200px;
+  text-align: center;
 }
